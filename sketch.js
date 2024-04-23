@@ -1,3 +1,5 @@
+let bgColor = 0;
+let isSort = true;
 function setup() {
     createCanvas(400, 400);
     let time = [0, 0, 0, 0];
@@ -12,7 +14,10 @@ function setup() {
     const ENDINGCREDIT = 7;
     let currentScene = 0;
 }
-ㄴ
 function draw() {
-
+    background(bgColor);
+    if (isSort) bgColor++;
+    else bgColor--;
+    if (bgColor == 255) isSort = false;
+    else if (bgColor == 0) isSort = true;
 }
