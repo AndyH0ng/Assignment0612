@@ -1,7 +1,7 @@
 # Art & Technology — p5.js Project by Team 3
 
 ## Coding Guide
-이 레포의 Wiki를 참조하세요
+이 레포의 [Wiki](https://github.com/AndyH0ng/AndyH0ng.github.io/wiki)를 참조하세요
 
 ## 13주차: 중간 발표
 - 최소한 70%는 완성할 것
