@@ -24,40 +24,39 @@ let time = [
 const devMode = true;
 
 function setup() {
-    createCanvas(400, 400);
+    createCanvas(400, 400)
     // 현재 나타나는 씬 번호 초기값
-    currentScene = 30;
+    currentScene = 30
     // 현재 나타나는 팀 초기값
-    currentTeam = 3;
-    totalTime = 0;
+    currentTeam = 3
+    totalTime = 0
 }
 
 function draw() {
     trackTime(millis());
     switch (currentTeam) {
         case TEAM1:
-            team01();
-            break;
+            team01()
+            break
         case TEAM2:
-            team02();
-            break;
+            team02()
+            break
         case TEAM3_1: case TEAM3_2: case TEAM3_3:
-            team03();
-            break;
+            team03()
+            break
         case ENDINGCREDIT:
-            credit();
-            break;
+            credit()
+            break
         case CTRL:
-            break;
+            break
     }
 }
 
 function trackTime(args) {
-    if (devMode) print(currentScene);
     if (args - totalTime >= 1000 * time[currentTeam - 1][currentScene % ((currentTeam) * 10)]) {
         if (currentScene % (currentTeam * 10) < 6) {
-            print("Duration", round((args - totalTime) / 1000))
-            totalTime += 1000 * time[currentTeam - 1][currentScene % (currentTeam * 10)];
+            if (devMode) print("Duration", round((args - totalTime) / 1000))
+            totalTime += 1000 * time[currentTeam - 1][currentScene % (currentTeam * 10)]
             if (currentScene == 35) {
                 // -> ENDING 2
                 currentScene = 40
