@@ -1,15 +1,17 @@
-let totalTime;
+// noinspection JSCheckFunctionSignatures,JSUnresolvedReference
 
-let currentScene;
+let totalTime
 
-let currentTeam;
-const TEAM1 = 1;
-const TEAM2 = 2;
-const TEAM3_1 = 3;
-const TEAM3_2 = 4;
-const TEAM3_3 = 5;
-const ENDINGCREDIT = 6;
-const CTRL = 7;
+let currentScene
+
+let currentTeam
+const TEAM1 = 1
+const TEAM2 = 2
+const TEAM3_1 = 3
+const TEAM3_2 = 4
+const TEAM3_3 = 5
+const ENDINGCREDIT = 6
+const CTRL = 7
 
 let time = [
     [],
@@ -33,7 +35,7 @@ function setup() {
 }
 
 function draw() {
-    trackTime(millis());
+    trackTime(millis())
     switch (currentTeam) {
         case TEAM1:
             team01()
@@ -49,6 +51,7 @@ function draw() {
             break
         case CTRL:
             break
+        default: console.log("TEAM_VALUE_ERROR")
     }
 }
 
@@ -57,23 +60,13 @@ function trackTime(args) {
         if (currentScene % (currentTeam * 10) < 6) {
             if (devMode) print("Duration", round((args - totalTime) / 1000))
             totalTime += 1000 * time[currentTeam - 1][currentScene % (currentTeam * 10)]
-            if (currentScene == 35) {
-                // -> ENDING 2
-                currentScene = 40
-                currentTeam++
-            } else if (currentScene == 45) {
-                // -> ENDING 3
-                currentScene = 50
-                currentTeam++
-            } else if (currentScene == 55) {
-                // -> ENDING CREDIT
-                currentScene = 60
-                currentTeam++
-            } else if (currentScene == 60) {
-                // -> CONTROL MENU
-                currentScene = 70
-                currentTeam++
-            } else currentScene++
+            switch (currentScene) {
+                case 35: currentScene = 40; currentTeam++; break
+                case 45: currentScene = 50; currentTeam++; break
+                case 55: currentScene = 60; currentTeam++; break
+                case 60: currentScene = 70; currentTeam++; break
+                default: currentScene++
+            }
             if (devMode) {
                 print("Running Time", round(args / 1000))
                 print("Current", currentScene)
