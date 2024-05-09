@@ -1,3 +1,0 @@
-function ending04() {
-
-}
