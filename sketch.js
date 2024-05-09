@@ -16,7 +16,7 @@ let time = [
     [],
     [3, 5, 5, 10, 5, 7],        // TEAM3 ENDING1
     [3, 5, 3, 10, 5, 4],        // TEAM3 ENDING2
-    [5, 10, 5, 5, 7, 5]         // TEAM3 ENDING3
+    [5, 10, 5, 5, 7, 5],        // TEAM3 ENDING3
     [2],                        // ENDING CREDIT
     [10]
 ]
