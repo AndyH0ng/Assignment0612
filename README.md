@@ -1,9 +1,5 @@
 # Art & Technology — p5.js Project by Team 3
 
-팀원일 경우 Collaborator 초대 문의는 디코로 주세요
-
-싫으면 톡으로 줘도 되고..
-
 <br>
 
 ## Coding Guide
