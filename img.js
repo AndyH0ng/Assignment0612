@@ -1,6 +1,12 @@
-function loadImg() {
+function preloadImage() {
+    // 배경 array
+    bg[0] = loadImage('assets/cave.png')
     // 단군
-    let man = loadImage("img/man.png")
+    man = loadImage("assets/man.png")
     // 웅녀
-    let woman = loadImage("img/woman.png")
+    woman = loadImage("assets/woman.png")
+    // 호랑이
+    tiger = loadImage("assets/kia.png")
+    // 곰
+    bear = loadImage("assets/doosan.png")
 }
