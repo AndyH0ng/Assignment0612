@@ -29,11 +29,14 @@ const time = [
 ]
 
 let bg = []
-let man, woman
+let cal = []
+let tiger = [], bear = []
+let man = [], woman = [], npc = [], baby
+let man_facade, man_foot, man_side, man_torso
 
-function preload() {
-    preloadImage()
-}
+let garlic, mugwort
+
+function preload() {preloadImage()}
 
 function setup() {
     createCanvas(1920, 1080)
