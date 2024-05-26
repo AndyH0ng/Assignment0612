@@ -20,8 +20,8 @@ const time = [
     [-1],                           // 0 : INTRO
     [],                             // 1 : TEAM1
     [-1],                           // 2 : TEAM2
-    [3, -1, 5, -1, 10, 5, 5],       // 3 : TEAM3 ENDING1
-    [3, -1, -1, 10, 5, 4],          // 4 : TEAM3 ENDING2
+    [3, -1, 5, -1, 10, 5, 5, 4],       // 3 : TEAM3 ENDING1
+    [3, 5, 10, 3, 3, 4],          // 4 : TEAM3 ENDING2
     [5, 10, 5, 5, 7, 5],            // 5 : TEAM3 ENDING3
     [2],                            // 6 : TEAM3 ENDING4
     [2],                            // 7 : ENDING CREDIT
@@ -30,17 +30,19 @@ const time = [
 
 let bg = []
 let cal = []
-let tiger = [], bear = []
-let man = [], woman = [], npc = [], baby
-let man_facade, man_foot, man_side, man_torso
+let tiger = [], tiger_alt = [], bear = []
+let man = [], woman = [], woman_alt = [], npc = [], baby
+let man_facade, man_foot, man_side, man_torso, man_in_cloud, couple
 
-let garlic, mugwort
+let garlic, mugwort, cloud
 
-function preload() {preloadImage()}
+function preload() { preloadImage() }
 
 function setup() {
     createCanvas(1920, 1080)
     currentScene = 30; currentTeam = 3; totalTime = 0;
+    tgWidth = tiger_alt.width * 0.5;  // Initial width scale
+    tgHeight = tiger_alt.height * 0.5;  // Initial height scale
 }
 
 function draw() {
@@ -82,7 +84,7 @@ function trkTime() {
         millis() - totalTime >= 1000 * time[temp0][temp1]) {
         totalTime += 1000 * time[temp0][temp1]
         switch (currentScene) {
-            case 36: currentScene = 40; currentTeam++; break
+            case 37: currentScene = 40; currentTeam++; break
             case 45: currentScene = 50; currentTeam++; break
             case 55: currentScene = 60; currentTeam++; break
             case 60: currentScene = 70; currentTeam++; break
