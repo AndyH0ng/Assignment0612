@@ -21,7 +21,7 @@ const time = [
     [],                             // 1 : TEAM1
     [-1],                           // 2 : TEAM2
     [3, -1, 5, -1, 10, 5, 5, 4],       // 3 : TEAM3 ENDING1
-    [3, 5, 10, 3, 3, 4],          // 4 : TEAM3 ENDING2
+    [3, 5, 3, -1, 3, 10, 5],          // 4 : TEAM3 ENDING2
     [5, 10, 5, 5, 7, 5],            // 5 : TEAM3 ENDING3
     [2],                            // 6 : TEAM3 ENDING4
     [2],                            // 7 : ENDING CREDIT
@@ -31,10 +31,10 @@ const time = [
 let bg = []
 let cal = []
 let tiger = [], tiger_alt = [], bear = []
-let man = [], woman = [], woman_alt = [], npc = [], baby
+let man = [], woman = [], woman_alt = [], npc = [], baby = []
 let man_facade, man_foot, man_side, man_torso, man_in_cloud, couple
 
-let garlic, mugwort, cloud
+let garlic, mugwort, cloud, effect = [], notice, all
 
 function preload() { preloadImage() }
 
@@ -43,6 +43,22 @@ function setup() {
     currentScene = 30; currentTeam = 3; totalTime = 0;
     tgWidth = tiger_alt.width * 0.5;  // Initial width scale
     tgHeight = tiger_alt.height * 0.5;  // Initial height scale
+    // E2S3
+    ohWidth = notice.width / 2;
+    ohHeight = notice.height / 2;
+    notice.resize(ohWidth, ohHeight);
+    bombWidth = effect[0].width/1.3;
+    bombHeight = effect[0].height/1.3;
+
+    // E2S5
+    tiger_alt[6].resize(int(tiger_alt[6].width * angrytigerScale), int(tiger_alt[6].height * angrytigerScale));
+    tigergirlXE2S5 = 1400;
+
+    // fight 이미지의 크기 조정 (1.5배 확대)
+    effect[1].resize(int(effect[1].width * 1.5), int(effect[1].height * 1.5));
+
+    ohgirl1X = 1200;
+    angrytigerX = 0;
 }
 
 function draw() {
@@ -85,7 +101,7 @@ function trkTime() {
         totalTime += 1000 * time[temp0][temp1]
         switch (currentScene) {
             case 37: currentScene = 40; currentTeam++; break
-            case 45: currentScene = 50; currentTeam++; break
+            case 46: currentScene = 50; currentTeam++; break
             case 55: currentScene = 60; currentTeam++; break
             case 60: currentScene = 70; currentTeam++; break
             case 70: currentScene = 80; currentTeam++; break

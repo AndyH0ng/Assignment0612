@@ -13,7 +13,7 @@ let targetHeight = 350
 let targetX = 1300
 let targetY = 500
 let duration = 3000
-let startTime
+let startTimeE1S1
 
 // E1 S3
 let isCloudwoongMoving = false;
@@ -124,7 +124,7 @@ function E1S5() {
     background(255)
     let babydanX = (width - 400) / 2;
     let babydanY = (height - 680) / 2;
-    image(baby, babydanX, babydanY, 400, 680);
+    image(baby[0], babydanX, babydanY, 400, 680);
 }
 // E1 S6 아들을 클릭하면 단군으로 성장함 : 3sec (click)
 function E1S6() {
@@ -160,7 +160,7 @@ function E1S7() {
 function ending01Pressed() {
     switch(currentScene % (currentTeam * 10)) {
         case 0:
-            let elapsedTime = millis() - startTime;
+            let elapsedTime = millis() - startTimeE1S1;
             let t = map(elapsedTime, 0, duration, 0, 1);
             t = constrain(t, 0, 1);
 
