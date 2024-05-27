@@ -1,6 +1,6 @@
 function preloadImage() {
     // 배경
-    for (var i = 0; i <= 7; i++)
+    for (var i = 0; i <= 11; i++)
         bg[i] = loadImage('assets/bg_' + i + '.png')
 
     // 캘린더
@@ -10,8 +10,8 @@ function preloadImage() {
     notice = loadImage('assets/notice.png')
 
     // 단군
-    man[0] = loadImage("assets/man_0.png")
-    man[1] = loadImage("assets/man_1.png")
+    for (var i = 0; i <= 2; i++)
+        man[i] = loadImage('assets/man_' + i + '.png')
     baby[0] = loadImage("assets/baby_0.png")
     baby[1] = loadImage("assets/baby_1.png")
     man_facade = loadImage("assets/man_facade.png")
@@ -29,12 +29,14 @@ function preloadImage() {
     couple = loadImage("assets/couple.png")
     all = loadImage("assets/all.png")
 
-    for (var i = 0; i <= 5; i++)
+    for (var i = 0; i <= 8; i++)
         npc[i] = loadImage("assets/npc_" + i + ".png")
 
     garlic = loadImage("assets/garlic.png")
     mugwort = loadImage("assets/mugwort.png")
     cloud = loadImage("assets/cloud.png")
+    crown = loadImage("assets/crown.png")
+    knife = loadImage("assets/knife.png")
 
     for (var i = 0; i <= 1; i++)
         effect[i] = loadImage("assets/effect_" + i + ".png")
@@ -47,4 +49,7 @@ function preloadImage() {
 
     for (var i = 0; i <= 6; i++)
         tiger_alt[i] = loadImage("assets/tiger_" + i + ".png")
+
+    for (var i = 0; i <= 7; i++)
+        voice_E3[i] = loadSound("assets/E3S" + i + ".mp3")
 }

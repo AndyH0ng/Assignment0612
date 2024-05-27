@@ -108,20 +108,20 @@ function E2S5() {
     background(bg[7]);
 
     // 호랑이 이미지를 지정된 위치에 그리기
-    image(tiger_alt[0], 250, 750);
-    image(tiger_alt[1], 550, 700);
-    image(tiger_alt[2], 900, 700);
+    image(tiger_alt[0], 100, 250);
+    image(tiger_alt[1], 400, 200);
+    image(tiger_alt[2], 750, 180);
 
     // 회전과 함께 티거걸 이미지를 그리기
-    push()
+    push();
     translate(tigergirlXE2S5, 700); // Y 위치 수정
     rotate(radians(rotationAngle * rotationDirection));
     imageMode(CENTER);
     image(woman_alt[1], 0, 0);
-    pop()
+    pop();
 
     // 티거걸이 캔버스의 양 끝에 닿으면 회전 방향 바꾸기
-    if (tigergirlXE2S5 <= 1400) {
+    if (tigergirlXE2S5 <= 1300) {
         rotationDirection = 1; // 시계 방향 회전
     } else if (tigergirlXE2S5 >= 1300) {
         rotationDirection = -1; // 반시계 방향 회전
@@ -217,3 +217,4 @@ function ending02Pressed() {
             console.log("PRESSED_FUNCTION_ERROR_3_2")
     }
 }
+
