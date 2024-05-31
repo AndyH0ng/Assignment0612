@@ -189,7 +189,6 @@ function ending01Pressed() {
             if (devMode) print("Click Event Detected"); print("Total (sec)", round(millis() / 1000)); print("Current Scene", currentScene)
             break
         case 2:
-
             break
         case 3:
             // E1 S3 구름을 클릭하면 환웅이 하늘에서 내려옴 : 5sec (click)
