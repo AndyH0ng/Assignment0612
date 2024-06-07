@@ -47,12 +47,16 @@ let sadTigergirlsonYE3S4; // sadTigergirlsonImg의 y좌표
 let offsetXE3S4 = 300; // 모든 이미지를 오른쪽으로 이동시키는 오프셋
 let movingE3S4 = false;
 
-function preload() { preloadImage() }
+function preload() { 
+    preloadImage();
+    team01Preload(); 
+}
 
 function setup() {
     createCanvas(1920, 1080);
-    currentScene = 30; currentTeam = 3; totalTime = 0;
+    currentScene = 30; currentTeam = 1; totalTime = 0;
     setupVar();
+    team01Init();
 }
 
 function draw() {
@@ -82,11 +86,16 @@ function mousePressed() {
 
 function mouseDragged() {
     switch (currentTeam) {
+        case TEAM1: team01Dragged(); break
         case TEAM3_2: ending02Dragged(); break
         case TEAM3_4: ending04Pressed(); break
     }
 }
-
+function mouseReleased() {
+    switch (currentTeam) {
+        case TEAM1: team01Released(); break
+    }
+}
 function trkTime() {
     let temp0 = currentTeam
     let temp1 = currentScene % ((currentTeam) * 10)
