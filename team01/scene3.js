@@ -31,7 +31,7 @@ let scene = 1;
 let scenesCompleted = false;
 let startTime;
 
-export function scene3Init() {
+export function scene3Preload(){
   gameStart = loadImage(mainPath + "scene3/gamestart.png");
   role1Image = loadImage(mainPath + "scene3/rainicon.png");
   cloud = loadImage(mainPath + "scene3/cloud.png");
@@ -45,7 +45,9 @@ export function scene3Init() {
   bg = loadImage(mainPath + "scene3/bg1.png");
   bg1 = loadImage(mainPath + "scene3/bg2.png");
   nar = loadImage(mainPath + "scene3/nar.png");
+}
 
+export function scene3Init() {
   drag1Pos = createVector(1100, 710);
   dragPos = createVector(550, 710);
   drag2Pos = createVector(80, 790);

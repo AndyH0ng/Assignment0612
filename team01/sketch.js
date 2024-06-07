@@ -1,15 +1,16 @@
 import { SceneSystem } from "./SceneSystem.js";
-import { introInit, introScene } from "./intro.js";
-import { scene1Init, scene1 } from "./scene1.js";
-import { scene2Init, scene2 } from "./scene2.js";
+import { introPreload, introInit, introScene } from "./intro.js";
+import { scene1Preload, scene1Init, scene1 } from "./scene1.js";
+import { scene2Preload, scene2Init, scene2 } from "./scene2.js";
 import {
+  scene3Preload,
   scene3Init,
   scene3,
   scene3MousePressed,
   scene3MouseDragged,
   scene3MouseReleased,
 } from "./scene3.js";
-import { scene4Init, scene4 } from "./scene4.js";
+import { scene4Preload, scene4Init, scene4 } from "./scene4.js";
 
 export let sceneSystem;
 export let mainPath;
@@ -19,6 +20,11 @@ export function team01Preload() {
   sceneSystem = new SceneSystem();
   mainPath = "../assets/team01/";
   sceneSystem.preload();
+  introPreload();
+  scene1Preload();
+  scene2Preload();
+  scene3Preload();
+  scene4Preload();
 }
 
 export function team01Init() {

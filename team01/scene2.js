@@ -14,11 +14,13 @@ let obstacles;
 let timer;
 let backgroundImage;
 
-export function scene2Init() {
-  dropGameSystem = new SceneSystem();
+export function scene2Preload(){
   btn = loadImage(mainPath + "scene2/btn.png");
   btnHover = loadImage(mainPath + "scene2/btn_hover.png");
   backgroundImage = loadImage(mainPath + "scene2/game_start.png");
+}
+export function scene2Init() {
+  dropGameSystem = new SceneSystem();
 }
 
 export function scene2() {

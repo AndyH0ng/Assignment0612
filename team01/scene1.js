@@ -9,7 +9,7 @@ let timer;
 let startTime;
 let hwanwoong;
 
-export function scene1Init() {
+export function scene1Preload(){
   hwanwoong = loadImage(mainPath + "scene1/hwanwoong.png");
   hwanin = loadImage(mainPath + "scene1/hwanin.png");
   c1 = loadImage(mainPath + "scene1/c1.png");
@@ -21,7 +21,9 @@ export function scene1Init() {
   c7 = loadImage(mainPath + "scene1/c7.png");
   backgroundImage = loadImage(mainPath + "scene1/bg.png");
   scene1p = loadImage(mainPath + "scene1/scene1p.png");
+}
 
+export function scene1Init() {
   c1x = 383;
   c1y = 963;
   c2x = 1047;

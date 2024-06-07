@@ -9,7 +9,7 @@ let humanAlpha = 0;
 let startAlpha = 0;
 let startTime;
 
-export function introInit(){
+export function introPreload(){
   milesha = loadImage(mainPath + "intro/milesha.png");
   milestone = loadImage(mainPath + "intro/milestone.png");
   mountain = loadImage(mainPath + "intro/mountain.png");
@@ -22,6 +22,10 @@ export function introInit(){
   human = loadImage(mainPath + "intro/human.png");
   tiger = loadImage(mainPath + "intro/tiger.png");
   mainbg = loadImage(mainPath + "intro/mainbg.png");
+
+}
+
+export function introInit(){
     mountainY = 800;
     humanY = 240;
     tigerY = 404;

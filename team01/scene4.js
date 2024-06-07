@@ -13,10 +13,7 @@ let backgroundImage;
 let startTime;
 let x, y;
 
-export function scene4Init() {
-  timer = new Timer(4);
-  timer.start();
-
+export function scene4Preload(){
   front = loadImage(mainPath + "scene4/f.png");
   front2 = loadImage(mainPath + "scene4/f2.png");
   side = loadImage(mainPath + "scene4/s.png");
@@ -32,6 +29,12 @@ export function scene4Init() {
   bear4 = loadImage(mainPath + "scene4/b_back.png");
   backgroundImage = loadImage(mainPath + "scene4/b.png");
   intro = loadImage(mainPath + "scene4/intro.png");
+
+}
+
+export function scene4Init() {
+  timer = new Timer(4);
+  timer.start();
 
   x = 1800;
   y = 600;
