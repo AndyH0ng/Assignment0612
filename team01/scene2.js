@@ -44,7 +44,7 @@ function dropGameInit() {
 
   ch = new GameCharacter();
 
-  let time = 10;
+  let time = 30;
   timer = new Timer(time);
   timer.start();
 
