@@ -42,6 +42,7 @@ export function team01() {
     showScene(sceneSystem.currentScene);
   } else if (sceneSystem.currentState === SceneSystem.END) {
     // 엔딩 처리
+    currentTeam = TEAM2;
   }
 }
 

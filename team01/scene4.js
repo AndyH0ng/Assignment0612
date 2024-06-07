@@ -1,5 +1,5 @@
 import { Timer } from './Timer.js';
-import { mainPath } from './sketch.js';
+import { sceneSystem, mainPath } from './sketch.js';
 let front, front2, side, side2, side3, bear, bear2, tiger, tiger2, tiger3, bear3, tiger4, bear4, intro;
 let hx, xspeed, switchTime;
 let show2;
@@ -122,9 +122,11 @@ function hw() {
     }
   } else {
     // shrinking and moving
-    if (Size > 200) {
+    if (Size > 160) {
       Size *= 0.99;
       x += 3;
+    }else{
+      sceneSystem.endScene();
     }
     image(bear, x, y, Size, Size);
     image(tiger, x + 200, y, Size, Size);
