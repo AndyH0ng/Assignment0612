@@ -64,7 +64,7 @@ function dropGame() {
     ch.crashCheck();
     if (backgroundElements[1].finalBackground()) {
       if (ch.checkEnd()) {
-        sceneSystem.stopNarration();
+        sceneSystem.stopBgm();
         sceneSystem.changeScene();
       }
       ch.end = true;

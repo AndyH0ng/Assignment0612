@@ -111,9 +111,11 @@ export class SceneSystem {
     }
   }
 
-  stopNarration() {
-    let currentNarration =
-      this.scenes[this.currentScene - 1][this.currentNarrationIndex - 1];
+  stopBgm() {
+    let currentNarration;
+    if(this.currentScene == 2){
+      currentNarration = this.scenes[1][0];
+    }
     currentNarration.stop();
   }
 }
