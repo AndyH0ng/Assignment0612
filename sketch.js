@@ -20,32 +20,21 @@ const time = [
     [-1],                           // 0 : INTRO
     [],                             // 1 : TEAM1
     [-1],                           // 2 : TEAM2
-    [3, -1, 5, -1, 10, 5, 5, 4],    // 3 : TEAM3 ENDING1
-    [3, 5, 3, -1, 3, 10, 5],        // 4 : TEAM3 ENDING2
+    [3, -1, -1, -1, 10, -1, 8, 10],    // 3 : TEAM3 ENDING1
+    [5, 5, 3, -1, 3, 10, 5],        // 4 : TEAM3 ENDING2
     [5, 10, 5, 5, 7, 5, 5],         // 5 : TEAM3 ENDING3
     [2],                            // 6 : TEAM3 ENDING4
     [2],                            // 7 : ENDING CREDIT
     [10]                            // 8 : CTRL
 ]
 
-let bg = []
-let cal = []
-let tiger = [], tiger_alt = [], bear = []
-let man = [], woman = [], woman_alt = [], npc = [], baby = []
-let man_facade, man_foot, man_side, man_torso, man_in_cloud, couple
-
-let voice_E3 = []
-
-let garlic, mugwort, cloud, effect = [], notice, all, crown, knife
-
-// E3S4
-let currentDanImgE3S4, currentTigergirlsonImgE3S4;
-let crownXE3S4, crownYE3S4;
-let targetCrownXE3S4, targetCrownYE3S4;
-let startCrownXE3S4, startCrownYE3S4;
-let sadTigergirlsonYE3S4; // sadTigergirlsonImg의 y좌표
-let offsetXE3S4 = 300; // 모든 이미지를 오른쪽으로 이동시키는 오프셋
-let movingE3S4 = false;
+let totalTime
+let bg = [], season = [];
+let motion_a = [], motion_b = [];
+let baby = [], boy = [], bear_girl = [], tiger_girl = [], crowd = [], dangun = [],
+    face = [], hidden = [], man = [], tiger = [],
+    bubble = [], cloud_alt = [], eat = [];
+let cloud, couple, flower, flowers;
 
 function preload() { preloadImage() }
 

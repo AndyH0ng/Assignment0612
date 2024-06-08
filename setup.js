@@ -1,52 +1,31 @@
 function setupVar() {
-    tgWidth = tiger_alt.width * 0.5;  // Initial width scale
-    tgHeight = tiger_alt.height * 0.5;  // Initial height scale
-    // E2S3
-    ohWidth = notice.width / 2;
-    ohHeight = notice.height / 2;
-    notice.resize(ohWidth, ohHeight);
-    bombWidth = effect[0].width/1.3;
-    bombHeight = effect[0].height/1.3;
+    // E1S0
+    tgWidth10 = bear_girl[5].width * 0.3;  // 초기 너비 비율
+    tgHeight10 = bear_girl[5].height * 0.3;  // 초기 높이 비율
 
-    // E2S5
-    tiger_alt[6].resize(int(tiger_alt[6].width * angrytigerScale), int(tiger_alt[6].height * angrytigerScale));
-    tigergirlXE2S5 = 1400;
+    // E1S1
+    bear_girl[9].resize((bear_girl[9].width * 0.7), (bear_girl[9].height * 0.7)); // Happy 이미지 크기 조정
 
-    // fight 이미지의 크기 조정 (1.5배 확대)
-    effect[1].resize(int(effect[1].width * 1.5), int(effect[1].height * 1.5));
+    // E1S5
+    babyY15 = height / 2; // 초기 Baby 이미지의 Y 위치 설정
 
-    // E2S6
-    ohgirl1X = 1200;
-    angrytigerX = 0;
+    // E1S6
+  currentImg16 = dangun[2];
+  x16 = 1050;
+  y16 = 678;  // 초기 y 위치
+  sizeW16 = 300;
+  sizeH16 = 400;
+  ySpeed16 = (950 - 678) / (3 * 30.0);  // 3초 동안 950까지 내려가기 위한 속도
 
-    // E3S3
-    currentDanImgE3S3 = baby[0];
-    currentTigersonImgE3S3 = baby[1];
+    // E1S7
+  currentImg17 = dangun[2];
+  x17 = 1050;
+  y17 = 678;  // 초기 y 위치
+  sizeW17 = 300;
+  sizeH17 = 400;
+  ySpeed17 = (950 - 678) / (3 * 30.0);
 
-    // E3S4
-    // 초기 위치 및 상태 설정
-    currentDanImgE3S4 = man[1];
-    currentTigergirlsonImgE3S4 = npc[5];
-    crownXE3S4 = offsetXE3S4 + 300;
-    crownYE3S4 = 300;
-    startCrownXE3S4 = crownXE3S4;
-    startCrownYE3S4 = crownYE3S4;
-    targetCrownXE3S4 = offsetXE3S4 + 600;
-    targetCrownYE3S4 = 100;
-    sadTigergirlsonYE3S4 = 400; // 초기 y좌표 설정
-
-    // E3S6
-    // mad 이미지를 초기 위치에 배치
-    madXE3S6 = width - npc[7].width - 100;
-    madYE3S6 = height / 2 - npc[7].height / 2;
-
-    // knife 이미지를 초기 위치에 배치 (mad 이미지 옆)
-    knifeXE3S6 = madXE3S6 + npc[7].width - 400;
-    knifeYE3S6 = height / 2 - knife.height / 2;
-
-    // mad와 knife 이미지의 타겟 위치 (중앙)
-    madTargetXE3S6 = width / 2 - npc[7].width / 2;
-    madTargetYE3S6 = height / 2 - npc[7].height / 2;
-    knifeTargetXE3S6 = width / 2 - knife.width / 2;
-    knifeTargetYE3S6 = height / 2 - knife.height / 2;
+  // E2S0
+    tgWidth40 = tiger_girl[0].width * 0.3;  // 초기 너비 비율
+  tgHeight40 = tiger_girl[0].height * 0.3;  // 초기 높이 비율
 }
