@@ -7,6 +7,14 @@
 
 <br>
 
+## Overview
+This is the final assignment at the first grade for subject Art & Technology, which belongs to the curriculum of Global School of Media, Soongsil University.
+
+Main story of the narrative is 'Dangun Shinhwa', Korean origin myth, but contains some variation for entertaining.
+
+Interaction between user and hardware input (mouse clicked, keyboard pressed, etc..) exists.
+<br>
+
 ## Timeline
 ### 13주차 1번째 시간: 중간 발표 (10점)
 - 콘텐츠 / 기술적 요소: 최소한 70%는 완성할 것
