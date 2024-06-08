@@ -33,12 +33,12 @@ let startTime;
 
 export function scene3Preload(){
   gameStart = loadImage(mainPath + "scene3/gamestart.png");
+  roleImage = loadImage(mainPath + "scene3/cloudIcon.png");
   role1Image = loadImage(mainPath + "scene3/rainicon.png");
-  cloud = loadImage(mainPath + "scene3/cloud.png");
   role2Image = loadImage(mainPath + "scene3/windicon.png");
+  cloud = loadImage(mainPath + "scene3/cloud.png");
   rain = loadImage(mainPath + "scene3/rain.png");
   wind = loadImage(mainPath + "scene3/wind.png");
-  roleImage = loadImage(mainPath + "scene3/cloudIcon.png");
   darkcloud = loadImage(mainPath + "scene3/dark_cloud.png");
   hwanwoong = loadImage(mainPath + "scene3/hw.png");
   mainbg1 = loadImage(mainPath + "scene3/background2.png");
@@ -57,6 +57,7 @@ export function scene3Init() {
   target2Pos = createVector(1450, 40);
 
   //nextscene
+  x = -cloud.width;
   x1 = -cloud.width;
   x2 = -rain.width + 100;
   x3 = -wind.width + 150;
@@ -117,7 +118,6 @@ export function scene3() {
     if (roleCorrect && role1Correct && role2Correct) {
       sceneChange = true;
     }
-    x = -xSpeed;
   } else {
     background(nar);
     image(gameStart, 890, 600, 250, 100);
@@ -227,6 +227,7 @@ function nextScene() {
       return;
     }
   }
+  background(bg);
   switch (scene) {
     case 1:
       scene3_1();
@@ -250,7 +251,6 @@ function nextScene() {
 }
 
 function scene3_1() {
-  background(bg);
   image(cloud, x, 500 - cloud.height / 2, 150, 300);
   if (x < stopX) {
     x += 10;
@@ -286,7 +286,6 @@ function scene3_1() {
 }
 
 function scene3_2() {
-  background(bg);
   image(cloud, x, 500 - cloud.height / 2, 150, 300);
   if (x < stopX) {
     x += 9;
@@ -303,7 +302,6 @@ function scene3_2() {
 }
 
 function scene3_3() {
-  background(bg);
   image(wind, x2 - 200, 470 - wind.height / 2, 150, 300);
   if (x2 < stopX2) {
     x2 += 10;
@@ -320,7 +318,6 @@ function scene3_3() {
 }
 
 function scene3_4() {
-  background(bg);
   image(rain, x1, 500 - rain.height / 2, 150, 300);
   if (x1 < stopX1) {
     x1 += 10;
@@ -332,7 +329,6 @@ function scene3_4() {
 }
 
 function scene3_5() {
-  background(bg);
   for (let i = 0; i < drops.length; i++) {
     drops[i].show();
     drops[i].fall();
