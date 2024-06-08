@@ -320,7 +320,6 @@ function E2S4() {
     image(cloud_alt[0], cloud1X_24, -500, cloud_alt[0].width * 1.5, cloud_alt[0].height * 1.5); // cloud 이미지 1.5배 크기로 출력
     image(cloud_alt[1], cloud2X_24, 100, cloud_alt[1].width * 1.5, cloud_alt[1].height * 1.5); // cloud2 이미지 1.5배 크기로 출력
 }
-
 function checkCollision4(cloudX, cloudY, image) {
   let cloudLeft = cloudX;
   let cloudRight = cloudX + cloud.width * 1.5;
@@ -391,6 +390,7 @@ function E2S5() {
 function E2S6() {
 
 }
+
 // trigger mouseDragged
 function ending02Dragged() {
     switch(currentScene % (currentTeam * 10)) {
