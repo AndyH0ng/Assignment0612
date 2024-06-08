@@ -45,7 +45,7 @@ export class Narration {
   }
 
   updateSubtitle() {
-    if (this.subtitleVisible) {
+    if (this.subtitleVisible && this.subtitle) {
       let elapsedTime = millis() - this.subtitleStartTime;
       if (elapsedTime < this.subtitleDuration) {
         this.displaySubtitle(); // 자막을 화면에 표시

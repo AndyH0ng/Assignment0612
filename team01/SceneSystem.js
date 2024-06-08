@@ -31,11 +31,27 @@ export class SceneSystem {
       ],
       [
         // 씬 2
-        new Narration("scene2/bgm.mp3"),
+        
       ],
       [
-        // 씬 3
-        // 나레이션 없음
+        new Narration(
+          "scene3/scene0.mp3",
+          "Hwangwoong happily headed down with the god of Wind, got of Rain and god of Cloud.",
+          1000
+        ),
+        new Narration(
+          "scene3/scene2.mp3",
+          "God of Cloud brought clouds.",
+          1000
+        ),
+        new Narration("scene3/scene1.mp3", "God of Wind gave winds.", 1000),
+        new Narration("scene3/scene3.mp3", "God of Rain sprinkled rain.", 0),
+        new Narration("scene3/raindsound.mp3"),
+        new Narration(
+          "scene3/scene4.mp3",
+          "The dire situation of the world below has become green again.",
+          0
+        ),
       ],
       [
         // 씬 4
@@ -78,9 +94,9 @@ export class SceneSystem {
   showScene() {
     this.currentState = SceneSystem.SHOWING;
     console.log("show");
-    if (this.scenes[this.currentScene - 1].length > 0) {
-      this.playNextNarration();
-    }
+    // if (this.scenes[this.currentScene - 1].length > 0) {
+    //   this.playNextNarration();
+    // }
   }
   endScene() {
     this.currentState = SceneSystem.END;
@@ -109,13 +125,5 @@ export class SceneSystem {
         currentNarration.updateSubtitle();
       }
     }
-  }
-
-  stopBgm() {
-    let currentNarration;
-    if(this.currentScene == 2){
-      currentNarration = this.scenes[1][0];
-    }
-    currentNarration.stop();
   }
 }

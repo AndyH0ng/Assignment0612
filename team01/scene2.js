@@ -4,6 +4,7 @@ import { GameBackground } from './GameBackground.js';
 import { Obstacle } from './Obstacle.js';
 import { sceneSystem, mainPath } from './sketch.js';
 import { SceneSystem } from './SceneSystem.js';
+import { Narration } from "./Narration.js";
 
 let dropGameSystem;
 let backgroundElements;
@@ -13,14 +14,18 @@ let btn, btnHover;
 let obstacles;
 let timer;
 let backgroundImage;
+let bgmPlayer;
 
 export function scene2Preload(){
   btn = loadImage(mainPath + "scene2/btn.png");
   btnHover = loadImage(mainPath + "scene2/btn_hover.png");
   backgroundImage = loadImage(mainPath + "scene2/game_start.png");
+  bgmPlayer = new Narration("scene2/bgm.mp3");
+  bgmPlayer.preload();
 }
 export function scene2Init() {
   dropGameSystem = new SceneSystem();
+  bgmPlayer.play();
 }
 
 export function scene2() {
@@ -64,7 +69,7 @@ function dropGame() {
     ch.crashCheck();
     if (backgroundElements[1].finalBackground()) {
       if (ch.checkEnd()) {
-        sceneSystem.stopBgm();
+        bgmPlayer.stop();
         sceneSystem.changeScene();
       }
       ch.end = true;

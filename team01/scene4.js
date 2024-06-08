@@ -43,6 +43,7 @@ export function scene4Init() {
   startTime = millis();
   firstNarration = false;
   switchTime = millis();
+  sceneSystem.playNextNarration();
 }
 
 export function scene4() {
