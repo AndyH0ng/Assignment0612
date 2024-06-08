@@ -38,7 +38,8 @@ let cloud, couple, flower, flowers;
 
 function preload() { 
     preloadImage();
-    team01Preload(); 
+    team01Preload();
+    creditPreload();
 }
 
 function setup() {
