@@ -51,6 +51,8 @@ let tiger2Visible24 = true;
 let tiger3Visible24 = true;
 let people1Visible24 = true;
 let people2Visible24 = true;
+let scaledMouseX24;
+let scaledMouseY24;
 
 // E2S5
 let walkingImageX25 = 2400;
@@ -155,7 +157,7 @@ function E2S2() {
         let thinkWidth42 = currentThink42.width * 0.7;
         let thinkHeight42 = currentThink42.height * 0.7;
         image(currentThink42, 1000, 400, thinkWidth42, thinkHeight42);
-        checkCollision(currentThink42, 1000, 400, thinkWidth42, thinkHeight42);
+        checkCollision2(currentThink42, 1000, 400, thinkWidth42, thinkHeight42);
     }
 
     // 1초 간격으로 thinking과 thinking2를 번갈아가며 표시
@@ -166,20 +168,20 @@ function E2S2() {
 
     if (showThinking1_42 && showThinking2_42) {
         image(bubble[1], 200, 100);
-        checkCollision(bubble[1], 200, 100, bubble[1].width, bubble[1].height);
+        checkCollision2(bubble[1], 200, 100, bubble[1].width, bubble[1].height);
     } else if (showThinking1_42) {
         image(bubble[0], 200, 100);
-        checkCollision(bubble[0], 200, 100, bubble[0].width, bubble[0].height);
+        checkCollision2(bubble[0], 200, 100, bubble[0].width, bubble[0].height);
     }
 
     if (showThinking3_42) {
         image(bubble[2], 650, 200);
-        checkCollision(bubble[2], 650, 200, bubble[2].width, bubble[2].height);
+        checkCollision2(bubble[2], 650, 200, bubble[2].width, bubble[2].height);
     }
 
     if (showThinking4_42) {
         image(bubble[3], 800, 300);
-        checkCollision(bubble[3], 800, 300, bubble[3].width, bubble[3].height);
+        checkCollision2(bubble[3], 800, 300, bubble[3].width, bubble[3].height);
     }
 
     if (cloudMovement42) {
@@ -196,7 +198,7 @@ function E2S2() {
     image(cloud_alt[3], cloud4X_42, 0);
     image(cloud_alt[4], cloud5X_42, -400);
 }
-function checkCollision(img, imgX, imgY, imgWidth, imgHeight) {
+function checkCollision2(img, imgX, imgY, imgWidth, imgHeight) {
     if (cloudMovement42) {
         if (cloud1X_42 < imgX + imgWidth && cloud1X_42 + cloud_alt[0].width > imgX42 && 400 < imgY + imgHeight && 400 + cloud_alt[0].height > imgY) {
             showThink = false;
@@ -239,14 +241,15 @@ function E2S3() {
 // E2 S4 범녀가 호랑이가 있는 곳으로 감 3
 function E2S4() {
     if (millis() - backgroundChangeTime24 > 4000) {
-        background(bg[10]);
-    } else {
         background(bg[9]);
+    } else {
+        background(bg[10]);
 
-        let scaledMouseX24 = mouseX + 100;
-        let scaledMouseY24 = mouseY + 100;
+        print(scaledMouseX24, scaledMouseY24)
+        scaledMouseX24 = mouseX + 100;
+        scaledMouseY24 = mouseY + 100;
         image(eat[0], scaledMouseX24 - 500, scaledMouseY24 - 300, eat[0].width * 0.5, eat[0].height * 0.5);
-        image(eat[1], scaledMouseX24 - 300, scaledMouseY24 - 300, eat[1].width * 0.5, eat2.height * 0.5);
+        image(eat[1], scaledMouseX24 - 300, scaledMouseY24 - 300, eat[1].width * 0.5, eat[1].height * 0.5);
 
         fill(0);
         textSize(40);
@@ -258,14 +261,14 @@ function E2S4() {
     tiger1Angle24 += tiger1RotationSpeed24;
     rotate(radians(tiger1Angle24));
     if (millis() - rotationStartTime24 > 2000 && rotationStarted24) {
-        if (people1Visible24 && !checkCollision(cloud1X_24, 100, crowd[4])) {
+        if (people1Visible24 && !checkCollision4(cloud1X_24, 100, crowd[4])) {
             image(crowd[4], -crowd[4].width/2, -crowd[4].height/2);
         } else {
             people1Visible24 = false;
         }
     } else {
-        if (tiger1Visible24 && !checkCollision(cloud1X_24, 100, tiger[0])) {
-            image(tiger[0], -tiger[0].width/2, -tiger[0].height/2);
+        if (tiger1Visible24 && !checkCollision4(cloud1X_24, 100, tiger[0])) {
+            image(tiger[0], -tiger[0].width / 2, -tiger[0].height / 2);
         } else {
             tiger1Visible24 = false;
         }
@@ -277,13 +280,13 @@ function E2S4() {
     tiger2Angle24 += tiger2RotationSpeed24;
     rotate(radians(tiger2Angle24));
     if (millis() - rotationStartTime24 > 2000 && rotationStarted24) {
-        if (people2Visible24 && !checkCollision(cloud1X_24, 400, crowd[5])) {
+        if (people2Visible24 && !checkCollision4(cloud1X_24, 400, crowd[5])) {
             image(crowd[5], -crowd[5].width / 2, -crowd[5].height / 2);
         } else {
             people2Visible24 = false;
         }
     } else {
-        if (tiger2Visible24 && !checkCollision(cloud1X_24, 400, tiger[1])) {
+        if (tiger2Visible24 && !checkCollision4(cloud1X_24, 400, tiger[1])) {
             image(tiger[1], -tiger[1].width / 2, -tiger[1].height / 2);
         } else {
             tiger2Visible24 = false;
@@ -296,13 +299,13 @@ function E2S4() {
     tiger3Angle24 += tiger3RotationSpeed24;
     rotate(radians(tiger3Angle24));
     if (millis() - rotationStartTime24 > 2000 && rotationStarted24) {
-        if (people1Visible24 && !checkCollision(cloud1X_24, 100, crowd[4])) {
+        if (people1Visible24 && !checkCollision4(cloud1X_24, 100, crowd[4])) {
             image(crowd[4], -crowd[4].width / 2, -crowd[4].height / 2);
         } else {
             people1Visible24 = false;
         }
     } else {
-        if (tiger3Visible24 && !checkCollision(cloud1X_24, 100, tiger[2])) {
+        if (tiger3Visible24 && !checkCollision4(cloud1X_24, 100, tiger[2])) {
             image(tiger[2], -tiger[2].width / 2, -tiger[2].height / 2);
         } else {
             tiger3Visible24 = false;
@@ -317,14 +320,30 @@ function E2S4() {
     image(cloud_alt[0], cloud1X_24, -500, cloud_alt[0].width * 1.5, cloud_alt[0].height * 1.5); // cloud 이미지 1.5배 크기로 출력
     image(cloud_alt[1], cloud2X_24, 100, cloud_alt[1].width * 1.5, cloud_alt[1].height * 1.5); // cloud2 이미지 1.5배 크기로 출력
 }
+
+function checkCollision4(cloudX, cloudY, image) {
+  let cloudLeft = cloudX;
+  let cloudRight = cloudX + cloud.width * 1.5;
+  let cloudTop = cloudY;
+  let cloudBottom = cloudY + cloud.height * 1.5;
+
+  let imageLeft = -image.width / 2;
+  let imageRight = image.width / 2;
+  let imageTop = -image.height / 2;
+  let imageBottom = image.height / 2;
+
+  return !(cloudRight < imageLeft || cloudLeft > imageRight || cloudBottom < imageTop || cloudTop > imageBottom);
+}
 // E2 S5 범녀가 호랑이 친구들을 설득하러 감 3
 function E2S5() {
-    background(bg[15]);
-
+    background(bg[10]);
     // 5초가 지나면 text1을 캔버스 크기에 맞게 삽입
-    if (millis() - totalTime >= 5000 && textToggleCount === 0) {
+    if (millis() - totalTime >= 5000 && textToggleCount25 === 0) {
         showText1_25 = true;
     }
+    // else {
+    //     print(millis() - totalTime)
+    // }
 
     if (showText1_25) {
         background(bg[13]);

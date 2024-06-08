@@ -277,7 +277,7 @@ function E1S3() {
                 cloudWoongX13 = 750; // 정확한 위치로 이동 후 고정
                 cloudWoongY13 = 280;
                 // cloudWoong 이미지를 cloudFlowerWoong 이미지로 변경
-                man[1] = cloudFlowerWoongImg;
+                man[1] = man[5];
                 // Flower 이미지 지우기
                 flowerVisible13 = false;
                 // 1.5초에 걸쳐 새로운 목표 위치로 이동 설정
@@ -471,8 +471,8 @@ function E1S7() {
     imageMode(CENTER);
     if (flagClicked17 && peopleAnimating17) {
         let happyYShift17 = sin(happyFrameCounter17 / 30.0 * PI) * 60;
-        image(happyPeopleLeft17, 512, 934 - happyYShift17);
-        image(happyPeopleRight17, 1502, 934 - happyYShift17);
+        image(crowd[2], 512, 934 - happyYShift17);
+        image(crowd[3], 1502, 934 - happyYShift17);
         happyFrameCounter17++;
 
         if (happyFrameCounter17 >= 30) { // 1초 애니메이션 완료 후 멈춤

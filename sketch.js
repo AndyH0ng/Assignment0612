@@ -20,8 +20,8 @@ const time = [
     [-1],                           // 0 : INTRO
     [],                             // 1 : TEAM1
     [-1],                           // 2 : TEAM2
-    [3, -1, -1, -1, 10, -1, 8, 10],    // 3 : TEAM3 ENDING1
-    [5, 5, 3, -1, 3, 10, 5],        // 4 : TEAM3 ENDING2
+    [3, 7, 5, 5, 10, 3, 3, 4],    // 3 : TEAM3 ENDING1
+    [5, 5, 3, 4, -1, -1, 5],        // 4 : TEAM3 ENDING2
     [5, 10, 5, 5, 7, 5, 5],         // 5 : TEAM3 ENDING3
     [2],                            // 6 : TEAM3 ENDING4
     [2],                            // 7 : ENDING CREDIT
@@ -43,7 +43,7 @@ function preload() {
 
 function setup() {
     createCanvas(1920, 1080);
-    currentScene = 30; currentTeam = 1; totalTime = 0;
+    currentScene = 30; currentTeam = 3; totalTime = 0;
     setupVar();
     team01Init();
 }
