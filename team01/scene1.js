@@ -38,6 +38,7 @@ export function scene1Init() {
   startTime = millis();
   timer = new Timer(6);
   isEnd = false;
+  sceneSystem.playNextNarration();
 }
 
 export function scene1() {

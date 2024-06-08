@@ -26,7 +26,7 @@ let speedY3 = -2;
 //nextScene
 let x1, x2, x3, x4, x5, x6, x7;
 let stopX, stopX1, stopX2, stopX3, stopX4, stopX5;
-let totalTime = [7500, 2500, 2500, 2000, 4200, 3000];
+let totalTime = [7500, 2500, 2500, 2000, 4200, 4500];
 let scene = 1;
 let scenesCompleted = false;
 let startTime;
@@ -190,6 +190,7 @@ export function scene3MouseReleased() {
       }
     }
     if (roleCorrect && role1Correct && role2Correct) {
+      sceneSystem.playNextNarration();
       sceneChange = true;
       startTime = millis();
     }
