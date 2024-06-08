@@ -73,3 +73,9 @@ function team03() {
             break;
     }
 }
+
+function goto(scene) {
+    currentScene = scene
+    currentTeam = int(scene / 10)
+    totalTime = millis()
+}
