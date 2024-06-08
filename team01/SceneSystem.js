@@ -35,20 +35,20 @@ export class SceneSystem {
       ],
       [
         new Narration(
-          "scene3/scene0.mp3",
+          "scene3/scene3_1.mp3",
           "Hwangwoong happily headed down with the god of Wind, got of Rain and god of Cloud.",
-          1000
+          1400
         ),
         new Narration(
-          "scene3/scene2.mp3",
+          "scene3/scene3_2.mp3",
           "God of Cloud brought clouds.",
           1000
         ),
-        new Narration("scene3/scene1.mp3", "God of Wind gave winds.", 1000),
-        new Narration("scene3/scene3.mp3", "God of Rain sprinkled rain.", 0),
+        new Narration("scene3/scene3_3.mp3", "God of Wind gave winds.", 1000),
+        new Narration("scene3/scene3_4.mp3", "God of Rain sprinkled rain.", 0),
         new Narration("scene3/raindsound.mp3"),
         new Narration(
-          "scene3/scene4.mp3",
+          "scene3/scene3_5.mp3",
           "The dire situation of the world below has become green again.",
           0
         ),
