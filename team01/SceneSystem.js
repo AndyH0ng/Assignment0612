@@ -8,7 +8,7 @@ export class SceneSystem {
 
   constructor() {
     this.currentState = SceneSystem.START;
-    this.currentScene = 0;
+    this.currentScene = 2;
     this.currentNarrationIndex = 0;
     this.scenes = [
       [

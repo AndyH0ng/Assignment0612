@@ -191,6 +191,7 @@ export function scene3MouseReleased() {
     }
     if (roleCorrect && role1Correct && role2Correct) {
       sceneChange = true;
+      startTime = millis();
     }
   }
 }
@@ -218,7 +219,7 @@ function nextScene() {
   }
 
   let elapsedTime = millis() - startTime;
-  if (elapsedTime > totalTime[scene - 1]) {
+  if (elapsedTime > totalTime[scene - 1] && elapsedTime > totalTime[scene - 1]) {
     scene++;
     startTime = millis();
     if (scene > 6) {
