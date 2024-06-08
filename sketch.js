@@ -36,12 +36,16 @@ let baby = [], boy = [], bear_girl = [], tiger_girl = [], crowd = [], dangun = [
     bubble = [], cloud_alt = [], eat = [];
 let cloud, couple, flower, flowers;
 
-function preload() { preloadImage() }
+function preload() { 
+    preloadImage();
+    team01Preload(); 
+}
 
 function setup() {
     createCanvas(1920, 1080);
-    currentScene = 30; currentTeam = 3; totalTime = 0;
+    currentScene = 30; currentTeam = 1; totalTime = 0;
     setupVar();
+    team01Init();
 }
 
 function draw() {
@@ -71,11 +75,16 @@ function mousePressed() {
 
 function mouseDragged() {
     switch (currentTeam) {
+        case TEAM1: team01Dragged(); break
         case TEAM3_2: ending02Dragged(); break
         case TEAM3_4: ending04Pressed(); break
     }
 }
-
+function mouseReleased() {
+    switch (currentTeam) {
+        case TEAM1: team01Released(); break
+    }
+}
 function trkTime() {
     let temp0 = currentTeam
     let temp1 = currentScene % ((currentTeam) * 10)
