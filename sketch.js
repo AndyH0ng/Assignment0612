@@ -20,8 +20,8 @@ const time = [
     [-1],                           // 0 : INTRO
     [],                             // 1 : TEAM1
     [-1],                           // 2 : TEAM2
-    [3, 3, 15, 4, 10, 7, 5],    // 3 : TEAM3 ENDING1
-    [3, 5, -1, 4, 10, -1, 5, 9],        // 4 : TEAM3 ENDING2
+    [3, 3, 15, -1, 10, 7, 5],    // 3 : TEAM3 ENDING1
+    [3, -1, -1, -1, -1, -1, -1, -1],        // 4 : TEAM3 ENDING2
     [5, 10, -1, 7, -1, -1, 10],         // 5 : TEAM3 ENDING3
     [2],                            // 7 : ENDING CREDIT
     [10]                            // 8 : CTRL

@@ -134,10 +134,10 @@ let insertImg;
 // ✅✅
 function E3S0() {
     background(bg[0]);
-    audio1[0].setVolume(0.5);
-    if (!audio1[0].isPlaying()) {
-        audio1[0].play();
-    }
+    // audio1[0].setVolume(0.5);
+    // if (!audio1[0].isPlaying()) {
+    //     audio1[0].play();
+    // }
     let currentTime = millis();
     let elapsedTime = currentTime - totalTime;
 

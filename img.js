@@ -29,7 +29,7 @@ function preloadImage() {
         crowd[i] = loadImage("assets/crowd_" + i + ".png");
     }
 
-    for (let i = 0; i <= 6; i++) {
+    for (let i = 0; i <= 10; i++) {
         dangun[i] = loadImage("assets/dangun_" + i + ".png");
     }
 
