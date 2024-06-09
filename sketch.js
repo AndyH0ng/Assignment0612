@@ -10,9 +10,7 @@ const TEAM2 = 2
 const TEAM3_1 = 3
 const TEAM3_2 = 4
 const TEAM3_3 = 5
-const TEAM3_4 = 6
-const ENDINGCREDIT = 7
-const CTRL = 8
+const ENDINGCREDIT = 6
 
 // 팀 별 시간 지정 (단위: 초)
 // 시간을 지정하고 싶지 않을 경우 -1로 지정합니다.
@@ -20,11 +18,10 @@ const time = [
     [-1],                           // 0 : INTRO
     [],                             // 1 : TEAM1
     [-1],                           // 2 : TEAM2
-    [3, 3, 15, -1, 10, 7, 5],    // 3 : TEAM3 ENDING1
+    [3, 3, 12, -1, 10, 7, 5],    // 3 : TEAM3 ENDING1
     [3, -1, -1, -1, -1, -1, -1, -1],        // 4 : TEAM3 ENDING2
-    [5, 10, -1, 7, -1, -1, 10],         // 5 : TEAM3 ENDING3
-    [2],                            // 7 : ENDING CREDIT
-    [10]                            // 8 : CTRL
+    [5, -1, -1, -1, -1, -1, 10],         // 5 : TEAM3 ENDING3
+    [-1]                            // 6 : ENDING CREDIT
 ]
 
 let totalTime
@@ -57,9 +54,8 @@ function draw() {
         case INTRO: intro(); break
         case TEAM1: team01(); break
         case TEAM2: team02(); break
-        case TEAM3_1: case TEAM3_2: case TEAM3_3: case TEAM3_4: team03(); break
+        case TEAM3_1: case TEAM3_2: case TEAM3_3: team03(); break
         case ENDINGCREDIT: credit(); break
-        case CTRL: break
         default: console.log("DRAW_FUNCTION_ERROR_DIVISION")
     }
 }
@@ -86,6 +82,13 @@ function mouseReleased() {
         case TEAM1: team01Released(); break
     }
 }
+
+function keyPressed() {
+    if (3 <= currentTeam && keyCode === 32 && currentScene !== 60) {
+        next()
+        print("Next Scene")
+    }
+}
 function trkTime() {
     let temp0 = currentTeam
     let temp1 = currentScene % ((currentTeam) * 10)
@@ -100,24 +103,17 @@ function next() {
     let temp0 = currentTeam
     let temp1 = currentScene % ((currentTeam) * 10)
     totalTime += 1000 * time[temp0][temp1]
-    if (currentScene % 10 < time.length) {
+    if (currentScene % 10 <= time.length) {
         if (currentScene < currentTeam * 10 + time[currentTeam].length - 1) currentScene++
         else {
             currentTeam++
             currentScene = (currentTeam) * 10
         }
+
         // DEBUG: 콘솔창에 정보 출력
     if (devMode) {
         print("Total (sec)", round(millis() / 1000))
         print("-> Current Scene", currentScene)
     }
-    }
-}
-
-function sound(file) {
-    let hasPlayed = false
-    if (!file.isPlaying() && !hasPlayed) {
-        file.play()
-        hasPlayed = true
     }
 }
