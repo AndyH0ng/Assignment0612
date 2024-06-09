@@ -38,6 +38,7 @@ function preload() {
     preloadImage();
     preloadSound();
     team01Preload();
+    team02Preload();
     creditPreload();
 }
 
@@ -46,6 +47,7 @@ function setup() {
     currentScene = 30; currentTeam = 1; totalTime = 0;
     setupVar();
     team01Init();
+    setupt2();
 }
 
 function draw() {
@@ -74,12 +76,14 @@ function mousePressed() {
 function mouseDragged() {
     switch (currentTeam) {
         case TEAM1: team01Dragged(); break
+        case TEAM2: team02Dragged(); break
         case TEAM3_2: ending02Dragged(); break
     }
 }
 function mouseReleased() {
     switch (currentTeam) {
         case TEAM1: team01Released(); break
+        case TEAM2: team02Released(); break
     }
 }
 
