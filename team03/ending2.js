@@ -518,7 +518,7 @@ function ending02Pressed() {
         case 1:
             isHappy41 = !isHappy41;
             if (isHappy41) {
-                happyY41 = 250;
+                happyY41 = 420;
                 pressedTime21 = millis();
             }
             break;
