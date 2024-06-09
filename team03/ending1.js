@@ -90,7 +90,6 @@ let happyFrameCounter17 = 0;
 // E1 S0 곰이 동굴에서 나온다 : 3sec
 function E1S0() {
     background(bg[0]);
-    sound(audio1[0]);
     // 현재 시간 가져오기
     let currentTime10 = millis() - totalTime;
 
