@@ -93,11 +93,7 @@ function trkTime() {
         millis() - totalTime >= 1000 * time[temp0][temp1]) {
         next();
     }
-    // DEBUG: 콘솔창에 정보 출력
-    if (devMode) {
-        print("Total (sec)", round(millis() / 1000))
-        print("Current Scene", currentScene)
-    }
+
 }
 
 function next() {
@@ -110,6 +106,11 @@ function next() {
             currentTeam++
             currentScene = (currentTeam) * 10
         }
+        // DEBUG: 콘솔창에 정보 출력
+    if (devMode) {
+        print("Total (sec)", round(millis() / 1000))
+        print("-> Current Scene", currentScene)
+    }
     }
 }
 
