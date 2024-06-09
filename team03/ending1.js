@@ -16,6 +16,9 @@ let currentImage11 = 1;
 let interval11 = 600;
 let lastSwitchTime11 = 0;
 let tempTime11;
+let pressTime11 = 0;
+let played11 = false;
+let pressedTime11 = 0;
 
 // E1S2
 let cloudX12 = 400;
@@ -84,11 +87,10 @@ let animating17 = true;  // 애니메이션 상태
 let flagClicked17 = false;  // flagDan이 클릭되었는지 여부
 let peopleAnimating17 = false;
 let happyFrameCounter17 = 0;
-
 // E1 S0 곰이 동굴에서 나온다 : 3sec
 function E1S0() {
     background(bg[0]);
-
+    sound(audio1[0]);
     // 현재 시간 가져오기
     let currentTime10 = millis() - totalTime;
 
@@ -116,10 +118,18 @@ function E1S0() {
         tgWidth10 += 2;  // 너비 증가
         tgHeight10 += 2.5;  // 높이 증가
     }
+
+    if (millis() - pressTime11 > 3000) {
+        next();
+    }
 }
 // E1 S1 빛을 가져다 대면 곰이 사람으로 변함 : 7sec (drag)
 function E1S1() {
     background(bg[0]);
+    if (!audio1[0].isPlaying() && played11 === false) {
+        played11 = true;
+        sound(audio1[1]);
+    }
 
     // 일정 시간(5초 = 5000 밀리초)이 지나면 happy 이미지로 교체
     if (totalTime - millis() >= 5000) {
@@ -158,6 +168,7 @@ function E1S1() {
 // E1 S2 웅녀가 환웅에게 결혼해달라 기도함 : 5sec (drag)
 function E1S2() {
     background(bg[1]);
+    sound(audio1[2]);
     if (beargirlClicked12) {
         if (cloudArrived12) {
             image(bear_girl[10], 750, 550, 270, 400); // 구름 도착 후 이미지 변경
@@ -378,7 +389,7 @@ function E1S5() {
     if (isBabyRotating15) {
         // mini 이미지 순차적으로 출력
         if (miniIndex15 < season.length) {
-            image(season[miniIndex15], width / 2, babyY15, babyWidth15, babyHeight15);
+            image(hidden[miniIndex15], width / 2, babyY15, babyWidth15, babyHeight15);
             if (millis() - lastMiniSwitchTime15 > miniSwitchInterval15) {
                 miniIndex15++;
                 lastMiniSwitchTime15 = millis();
@@ -463,54 +474,6 @@ function E1S6() {
     imageMode(CENTER);
     image(currentImg16, x16, y16, sizeW16, sizeH16);
 }
-// E1 S7 단군이 고조선을 건국함 : 4sec
-function E1S7() {
-    background(bg[6]);
-
-    // 왼쪽 사람 그리기
-    imageMode(CENTER);
-    if (flagClicked17 && peopleAnimating17) {
-        let happyYShift17 = sin(happyFrameCounter17 / 30.0 * PI) * 60;
-        image(crowd[2], 512, 934 - happyYShift17);
-        image(crowd[3], 1502, 934 - happyYShift17);
-        happyFrameCounter17++;
-
-        if (happyFrameCounter17 >= 30) { // 1초 애니메이션 완료 후 멈춤
-            peopleAnimating17 = false;
-        }
-    } else if (flagClicked17) {
-        image(crowd[0], 512, 934);
-        image(crowd[1], 1502, 934);
-    } else {
-        image(crowd[2], 512, 934);
-        image(crowd[3], 1502, 934);
-    }
-
-    if (animating17) {
-        // 0.5초마다 이미지 변경
-        if (frameCounter17 % switchTime17 === 0) {
-            currentImg17 = (currentImg17 === dangun[2]) ? dangun[3] : dangun[2];
-        }
-
-        // 크기와 위치 갱신
-        y17 += ySpeed17;
-        sizeW17 += ySpeed17 * (300.0 / (950 - 678));  // 비례 증가
-        sizeH17 += ySpeed17 * (400.0 / (950 - 678));  // 비례 증가
-
-        frameCounter17++;
-
-        // 3초 후 애니메이션 고정
-        if (frameCounter17 >= 3 * 30) {
-            animating17 = false;
-            y17 = 950;  // y 좌표 고정
-            currentImg17 = dangun[2];
-        }
-    }
-
-    // 이미지 중앙에 그리기
-    imageMode(CENTER);
-    image(currentImg17, x17, y17, sizeW17, sizeH17);
-}
 
 // trigger mousePressed
 function ending01Pressed() {
@@ -518,7 +481,10 @@ function ending01Pressed() {
         case 1:
             // 클릭 시 Happy 이미지로 변경
             isHappy11 = !isHappy11;
-            if (isHappy11) happyY11 = 420; // 초기 위치 설정
+            if (isHappy11) {
+                happyY11 = 420;
+                pressedTime11 = millis();
+            } // 초기 위치 설정
             tempTime11 = millis();
             break
 
@@ -571,17 +537,6 @@ function ending01Pressed() {
                 flagClicked16 = true;
                 happyFrameCounter16 = 0;
                 peopleAnimating16 = true;
-            }
-            break
-
-        case 7:
-            if (!animating17 && !flagClicked17 &&
-                mouseX > x17 - sizeW17 / 2 && mouseX < x17 + sizeW17 / 2 &&
-                mouseY > y17 - sizeH17 / 2 && mouseY < y17 + sizeH17 / 2) {
-                currentImg17 = dangun[4];
-                flagClicked17 = true;
-                happyFrameCounter17 = 0;
-                peopleAnimating17 = true;
             }
             break
     }

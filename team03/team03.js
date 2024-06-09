@@ -1,6 +1,4 @@
 function team03() {
-    textSize(100)
-    textAlign(CENTER)
     switch (currentScene) {
         case 30:
             push(); E1S0(); pop();
@@ -47,6 +45,9 @@ function team03() {
         case 46:
             push(); E2S6(); pop();
             break;
+        case 47:
+            push(); E2S7(); pop();
+            break;
         case 50:
             push(); E3S0(); pop();
             break;
@@ -67,9 +68,6 @@ function team03() {
             break;
         case 56:
             push(); E3S6(); pop();
-            break;
-        case 57:
-            push(); E3S7(); pop();
             break;
     }
 }

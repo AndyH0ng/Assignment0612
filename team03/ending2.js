@@ -3,7 +3,6 @@ let tgX40 = 1380;
 let tgY40 = 420;
 let tgWidth40;
 let tgHeight40;
-
 let showWalking40 = true;  // 어떤 이미지를 보여줄지 추적
 let lastSwitchTime40 = 0;  // 마지막으로 이미지를 교체한 시간
 let switchInterval40 = 500;  // 이미지 교체 간격 (밀리초)
@@ -13,10 +12,10 @@ let stopSwitchTime40 = 4000;  // 이미지 교체를 멈출 시간 (밀리초)
 let isHappy41 = false;
 let happyY41;
 let speed41 = 3;
-
 let currentImage41 = 1;
 let interval41 = 600; // 0.6초 간격 (600 밀리초)
 let lastSwitchTime41 = 0;
+let pressedTime21 = 0;
 
 // E2S2
 let showThinking2_42 = false;
@@ -30,9 +29,13 @@ let showThink42 = true;
 let lastSwitchTime42 = 0;
 let backgroundChangeTime42 = 0;
 let cloud1X_42 = 2500, cloud2X_42 = -2500, cloud3X_42 = -2300, cloud4X_42 = 2500, cloud5X_42 = -2500;
+let pressedTime42 = 0;
+let isPressed42 = false;
 
 // E2S3
 let textToDisplay23 = "Let's feed mugwort and garlic to other tigerfriends!";
+let isPressed43 = false;
+let pressedTime43 = 0;
 
 // E2S4
 let tiger1Angle24 = 0;
@@ -64,8 +67,26 @@ let showText2_25 = false;
 let showText3_25 = false;
 let showText4_25 = false;
 let textToggleCount25 = 0;
+let pressedTime45 = 0;
 
 // E2S6
+let currentImageIndex26 = 0;
+let lastImageChangeTime26 = 0;
+let showAlternateImages26 = false;
+
+// E2S7
+let currentImageIndex27 = 0;
+let showBImages27 = true;
+let fadeAlpha27 = 0; // 화면 어두움을 나타내는 알파 값
+let lastImageChangeTime27 = 0;
+let imageChangeInterval27 = 100; // 이미지 변경 간격 (0.1초)
+
+let message27 = "In the end, the tiger girl was eaten by the tiger.";
+let displayedMessage27 = "";
+let currentCharIndex27 = 0;
+let showMessage27 = false;
+let messageStartTime27 = 0;
+let letterInterval27 = 100; // 텍스트가 나타나는 간격 (0.1초)
 
 // E2 S0 동굴에서 사람으로 변한 호랑이가 나옴 : 3sec
 function E2S0() {
@@ -100,7 +121,7 @@ function E2S0() {
         tgHeight40 += 2.5;  // 높이 증가
     }
 }
-// E2 S1 사람으로 변한 범녀가 다른 호랑이들도 인간으로 변하면 좋겠다고 생각함 : 5sec
+// ✅✅
 function E2S1() {
     background(bg[0]);
 
@@ -127,7 +148,7 @@ function E2S1() {
     } else {
         // 이미지 교체 타이밍 체크
         if (millis() - lastSwitchTime41 > interval41) {
-            currentImage41 = (currentImage === 1) ? 2 : 1;
+            currentImage41 = (currentImage41 === 1) ? 2 : 1;
             lastSwitchTime41 = millis();
         }
 
@@ -142,8 +163,11 @@ function E2S1() {
             image(tiger_girl[3], 1000, 400, checkWidth41, checkHeight41);
         }
     }
+    if (pressedTime21 - totalTime >= 5000) {
+        next();
+    }
 }
-// E2 S3 옛 친구들인 호랑이를 설득하러 감 3
+// ✅✅
 function E2S2() {
     if (changeBackground42 && millis() - backgroundChangeTime42 > 3000) {
         background(bg[7]);
@@ -197,27 +221,33 @@ function E2S2() {
     image(cloud_alt[2], cloud3X_42, -200);
     image(cloud_alt[3], cloud4X_42, 0);
     image(cloud_alt[4], cloud5X_42, -400);
+    if (isPressed42) {
+        if (millis() - pressedTime42 > 5000) {
+            next();
+        }
+
+    }
 }
 function checkCollision2(img, imgX, imgY, imgWidth, imgHeight) {
     if (cloudMovement42) {
-        if (cloud1X_42 < imgX + imgWidth && cloud1X_42 + cloud_alt[0].width > imgX42 && 400 < imgY + imgHeight && 400 + cloud_alt[0].height > imgY) {
-            showThink = false;
+        if (cloud1X_42 < imgX + imgWidth && cloud1X_42 + cloud_alt[0].width > imgX && 400 < imgY + imgHeight && 400 + cloud_alt[0].height > imgY) {
+            showThink42 = false;
         }
-        if (cloud2X_42 < imgX + imgWidth && cloud2X_42 + cloud_alt[1].width > imgX42 && 50 < imgY + imgHeight && 50 + cloud_alt[1].height > imgY) {
+        if (cloud2X_42 < imgX + imgWidth && cloud2X_42 + cloud_alt[1].width > imgX && 50 < imgY + imgHeight && 50 + cloud_alt[1].height > imgY) {
             showThinking1_42 = false;
         }
-        if (cloud3X_42 < imgX + imgWidth && cloud3X_42 + cloud_alt[2].width > imgX42 && 150 < imgY + imgHeight && 150 + cloud_alt[2].height > imgY) {
+        if (cloud3X_42 < imgX + imgWidth && cloud3X_42 + cloud_alt[2].width > imgX && 150 < imgY + imgHeight && 150 + cloud_alt[2].height > imgY) {
             showThinking3_42 = false;
         }
-        if (cloud4X_42 < imgX + imgWidth && cloud4X_42 + cloud_alt[3].width > imgX42 && 50 < imgY + imgHeight && 50 + cloud_alt[3].height > imgY) {
+        if (cloud4X_42 < imgX + imgWidth && cloud4X_42 + cloud_alt[3].width > imgX && 50 < imgY + imgHeight && 50 + cloud_alt[3].height > imgY) {
             showThinking4_42 = false;
         }
-        if (cloud5X_42 < imgX + imgWidth && cloud5X_42 + cloud_alt[4].width > imgX42 && 380 < imgY + imgHeight && 380 + cloud_alt[4].height > imgY) {
+        if (cloud5X_42 < imgX + imgWidth && cloud5X_42 + cloud_alt[4].width > imgX && 380 < imgY + imgHeight && 380 + cloud_alt[4].height > imgY) {
             showThinking2_42 = false;
         }
     }
 }
-// E2 S3 범녀의 느낌표를 누르면 호랑이가 사람으로 변함
+// ✅✅
 function E2S3() {
     background(bg[8]);
 
@@ -236,14 +266,20 @@ function E2S3() {
     // 텍스트 설정
     fill(0); // 글자색을 검은색으로 설정합니다.
     textSize(40); // 글자 크기를 40으로 설정합니다.
-    text(textToDisplay23, 300, 950); // 텍스트를 (300, 950)에 삽입합니다.
+    textAlign(CENTER); // 텍스트 정렬을 가운데로 설정합니다.
+    text(textToDisplay23, 800, 950); // 텍스트를 (300, 950)에 삽입합니다.
+    if (isPressed43) {
+        if (millis() - pressedTime43 > 3000) {
+            next();
+        }
+    }
 }
 // E2 S4 범녀가 호랑이가 있는 곳으로 감 3
 function E2S4() {
     if (millis() - backgroundChangeTime24 > 4000) {
-        background(bg[9]);
+        background(bg[7]);
     } else {
-        background(bg[10]);
+        background(bg[9]);
 
         print(scaledMouseX24, scaledMouseY24)
         scaledMouseX24 = mouseX + 100;
@@ -253,7 +289,9 @@ function E2S4() {
 
         fill(0);
         textSize(40);
-        text("Okay then, let's go into the forest!", 300, 950);
+        push();
+        text("Okay then, let's go into the forest!", 600, 950);
+        pop()
     }
 
     push();
@@ -321,49 +359,53 @@ function E2S4() {
     image(cloud_alt[1], cloud2X_24, 100, cloud_alt[1].width * 1.5, cloud_alt[1].height * 1.5); // cloud2 이미지 1.5배 크기로 출력
 }
 function checkCollision4(cloudX, cloudY, image) {
-  let cloudLeft = cloudX;
-  let cloudRight = cloudX + cloud.width * 1.5;
-  let cloudTop = cloudY;
-  let cloudBottom = cloudY + cloud.height * 1.5;
+    let cloudLeft = cloudX;
+    let cloudRight = cloudX + cloud.width * 1.5;
+    let cloudTop = cloudY;
+    let cloudBottom = cloudY + cloud.height * 1.5;
 
-  let imageLeft = -image.width / 2;
-  let imageRight = image.width / 2;
-  let imageTop = -image.height / 2;
-  let imageBottom = image.height / 2;
+    let imageLeft = -image.width / 2;
+    let imageRight = image.width / 2;
+    let imageTop = -image.height / 2;
+    let imageBottom = image.height / 2;
 
-  return !(cloudRight < imageLeft || cloudLeft > imageRight || cloudBottom < imageTop || cloudTop > imageBottom);
+    return !(cloudRight < imageLeft || cloudLeft > imageRight || cloudBottom < imageTop || cloudTop > imageBottom);
 }
-// E2 S5 범녀가 호랑이 친구들을 설득하러 감 3
+// ✅✅
 function E2S5() {
     background(bg[10]);
     // 5초가 지나면 text1을 캔버스 크기에 맞게 삽입
     if (millis() - totalTime >= 5000 && textToggleCount25 === 0) {
         showText1_25 = true;
     }
-    // else {
-    //     print(millis() - totalTime)
-    // }
 
     if (showText1_25) {
         background(bg[13]);
         fill(0); // 검은색
         textSize(50); // 텍스트 크기
+        textAlign(LEFT);
         text("Who are you?", 900, 940); // 텍스트 삽입
     } else if (showText2_25) {
         background(bg[14]);
         fill(0); // 검은색
         textSize(50); // 텍스트 크기
+        textAlign(LEFT);
         text("Hey guys! I have become human!", 400, 940); // 텍스트 삽입
     } else if (showText3_25) {
         background(bg[15]);
         fill(0); // 검은색
         textSize(50); // 텍스트 크기
+        textAlign(LEFT);
         text("I don't know who you are...", 900, 940); // 텍스트 삽입
     } else if (showText4_25) {
         background(bg[16]);
         fill(0); // 검은색
         textSize(50); // 텍스트 크기
+        textAlign(LEFT);
         text("I just know you're my prey...!", 900, 940); // 텍스트 삽입
+        if (millis() - pressedTime45 >= 3000) {
+            next();
+        }
     } else {
         if (walkingImageX25 > 1100) {
             walkingImageX25 -= 5; // walking3, walking4 이미지 x 좌표 감소
@@ -386,9 +428,81 @@ function E2S5() {
         image(tiger[2], 750, 500);
     }
 }
-// E2 S6 호랑이들은 범녀를 알아보지 못하고 잡아먹으려 함 10
+// ✅
 function E2S6() {
+    background(255); // 흰색 배경
 
+    let currentTime = millis();
+
+    // 처음 12개의 이미지를 0.5초 간격으로 나타나게 함
+    if (currentImageIndex26 < 12) {
+        if (currentTime - lastImageChangeTime26 >= 200) {
+            lastImageChangeTime26 = currentTime;
+            currentImageIndex26++;
+        }
+        image(motion_a[currentImageIndex26], 0, 0, width, height);
+    }
+    // a13과 a14 이미지를 0.5초 간격으로 번갈아가며 나타나게 함
+    else {
+        if (currentTime - lastImageChangeTime26 >= 500) {
+            lastImageChangeTime26 = currentTime;
+            showAlternateImages26 = !showAlternateImages26;
+        }
+        if (showAlternateImages26) {
+            image(motion_a[12], 0, 0, width, height); // a13 이미지
+        } else {
+            image(motion_a[13], 0, 0, width, height); // a14 이미지
+        }
+    }
+}
+// ✅
+function E2S7() {
+    background(255); // 흰색 배경
+    if (showBImages27) {
+        if (currentImageIndex27 < 8) {
+            // 이미지 변경 간격마다 이미지를 변경
+            if (millis() - lastImageChangeTime27 > imageChangeInterval27) {
+                currentImageIndex27++;
+                lastImageChangeTime27 = millis();
+            }
+            // 현재 이미지를 표시
+            if (currentImageIndex27 < 8) {
+                image(motion_b[currentImageIndex27], 0, 0, width, height);
+            }
+        } else {
+            // b8 이미지가 나왔을 때 화면 어두워지기
+            fadeAlpha27 += 5;
+            if (fadeAlpha27 >= 255) {
+                fadeAlpha27 = 255;
+                fill(0, fadeAlpha27);
+                rect(0, 0, width, height);
+            } else {
+                fill(0, fadeAlpha27);
+                rect(0, 0, width, height);
+            }
+
+            // 1초 후에 텍스트 표시 시작
+            if (millis() - lastImageChangeTime27 > 1000 && !showMessage27) {
+                showMessage27 = true;
+                messageStartTime27 = millis();
+            }
+        }
+    }
+
+    if (showMessage27) {
+        if (currentCharIndex27 < message27.length) {
+            // 현재 글자를 나타내기 위해 인덱스 계산
+            let elapsedTime = millis() - messageStartTime27;
+            currentCharIndex27 = min(elapsedTime / letterInterval27, message27.length - 1);
+            displayedMessage27 = message27.substring(0, currentCharIndex27 + 1);
+        }
+        push();
+        fill(255); // 흰색
+        textSize(90); // 텍스트 크기
+        textAlign(LEFT);
+        text(displayedMessage27, 100, height / 2 + 45); // x좌표를 100으로 설정하여 화면 왼쪽에 텍스트 표시
+        pop();
+    }
 }
 
 // trigger mouseDragged
@@ -403,7 +517,10 @@ function ending02Pressed() {
     switch(currentScene % (currentTeam * 10)) {
         case 1:
             isHappy41 = !isHappy41;
-            if (isHappy41) happyY41 = 420;
+            if (isHappy41) {
+                happyY41 = 420;
+                pressedTime21 = millis();
+            }
             break;
         case 2:
             if (mouseX >= 200 && mouseX <= 200 + tiger_girl[5].width &&
@@ -413,9 +530,17 @@ function ending02Pressed() {
                 changeBackground42 = true;
                 backgroundChangeTime42 = millis();
             }
+            if (isPressed42 === false) {
+                isPressed42 = true;
+                pressedTime42 = millis();
+            }
             break;
         case 3:
             textToDisplay23 = "If you do this, your tiger friends will turn into humans, right?";
+            if (isPressed43 === false) {
+                isPressed43 = true;
+                pressedTime43 = millis();
+            }
             break;
         case 4:
             if (mouseButton === LEFT) {
@@ -439,6 +564,7 @@ function ending02Pressed() {
                 } else if (textToggleCount25 === 3) {
                     showText3_25 = false;
                     showText4_25 = true;
+                    pressedTime45 = millis();
                 }
             }
             break
