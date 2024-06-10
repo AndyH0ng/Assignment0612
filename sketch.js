@@ -91,6 +91,19 @@ function keyPressed() {
         next()
         print("Next Scene")
     }
+    
+  // 숫자 r을 누르면 변수들을 초기화하고 다시 설정합니다.
+  if (key == "r") {
+    initializeVariables();
+    setupt2(); 
+    currentTeam = TEAM2;
+    // setup 함수를 다시 호출하여 환경을 초기화합니다. 필요한 경우 이 부분을 조정해주세요.
+  }
+
+  if (key == "y") {
+    goto(30);
+    currentTeam = TEAM3_1;
+  }
 }
 function trkTime() {
     let temp0 = currentTeam

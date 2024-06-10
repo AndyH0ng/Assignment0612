@@ -231,17 +231,6 @@ function team02Released() {
   }
 }
 
-function keyPressed() {
-  // 숫자 r을 누르면 변수들을 초기화하고 다시 설정합니다.
-  if (key == "r") {
-    initializeVariables();
-    setup(); // setup 함수를 다시 호출하여 환경을 초기화합니다. 필요한 경우 이 부분을 조정해주세요.
-  }
-
-  if (key == "y") {
-    currentTeam = TEAM3_1;
-  }
-}
 
 function initializeVariables() {
   iskmovieVisible = false;
@@ -507,16 +496,18 @@ if (ed2 == 1) {
 }
 
 function ed31() {
-  currentScene = 30;
+  goto(30);
     currentTeam = TEAM3_1;//정상앤
 }
 
 function ed32() {
-  currentScene = 40;
+  goto(40);
+  // currentScene = 40;
     currentTeam = TEAM3_2; // 반대
 }
 
 function ed33() {
-  currentScene = 50;
+  goto(50);
+  // currentScene = 50;
     currentTeam = TEAM3_3; //
 }
