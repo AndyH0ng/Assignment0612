@@ -289,7 +289,7 @@ function c1() {
     image(imgtb, 350, 50);
     text(
         "Who would you give garlic & mugwort to a bear or a tiger?",
-        fontX,
+        fontX+500,
         fontY
     );
   }
@@ -430,7 +430,7 @@ function team02() {
         // 동영상을 재생합니다.
         kmovie.play();
       }
-      setTimeout(ed31, 17000);
+      setTimeout(ed31, 10000);
     }
   }
 
@@ -467,7 +467,7 @@ function team02() {
         // 동영상을 재생합니다.
         tmovie.play();
       }
-      setTimeout(ed32, 18000);
+      setTimeout(ed32, 14500);
     }
   }
 
@@ -479,7 +479,7 @@ function team02() {
       ktmovie.play();
     }
     ed3 = ed3 + 1;
-    setTimeout(ed33, 11000);
+    setTimeout(ed33, 10000);
   }
   if (ed4 === 1) {
     kumaOut();
