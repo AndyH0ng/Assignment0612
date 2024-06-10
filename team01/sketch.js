@@ -43,6 +43,7 @@ export function team01() {
   } else if (sceneSystem.currentState === SceneSystem.END) {
     // 엔딩 처리
     setupt2();
+    soundFile.play();
     currentTeam = TEAM2;
   }
 }

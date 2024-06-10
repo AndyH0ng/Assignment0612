@@ -102,8 +102,6 @@ function setupt2() {
   kmovie.hide();
   tmovie.hide();
   ktmovie.hide();
-
-  soundFile.play(); // setup 함수에서 사운드 재생
 }
 
 function kumaIn() {
@@ -282,14 +280,17 @@ function initializeVariables() {
   displayLastImage2 = false;
   let images1 = [];
   let images2 = [];
+
+  soundFile.play();
 }
 
 function c1() {
   if (ed1 === 0 && ed2 === 0 && ed3 === 0 && ed4 === 0) {
     image(imgtb, 350, 50);
+    textAlign(CENTER);
     text(
         "Who would you give garlic & mugwort to a bear or a tiger?",
-        fontX+500,
+        width/2,
         fontY
     );
   }

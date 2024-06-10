@@ -44,7 +44,7 @@ function preload() {
 
 function setup() {
     createCanvas(1920, 1080);
-    currentScene = 30; currentTeam = 2; totalTime = 0;
+    currentScene = 30; currentTeam = 1; totalTime = 0;
     setupVar();
     team01Init();
     setupt2();
