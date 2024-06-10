@@ -47,7 +47,6 @@ function setup() {
     currentScene = 30; currentTeam = 1; totalTime = 0;
     setupVar();
     team01Init();
-    setupt2();
 }
 
 function draw() {
