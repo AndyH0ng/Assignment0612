@@ -9,21 +9,21 @@ let ssuk = true;
 let ktext = false;
 let ttext = false;
 let garx,
-  gary,
-  ssukx,
-  ssuky,
-  kumax,
-  kumay,
-  kumaeat,
-  kumamove,
-  torax,
-  toray,
-  toraeat,
-  toramove;
+    gary,
+    ssukx,
+    ssuky,
+    kumax,
+    kumay,
+    kumaeat,
+    kumamove,
+    torax,
+    toray,
+    toraeat,
+    toramove;
 let ed1 = 0,
-  ed2 = 0,
-  ed3 = 0,
-  ed4 = 0;
+    ed2 = 0,
+    ed3 = 0,
+    ed4 = 0;
 let fontX, fontY;
 let imageCount1 = 7;
 let imageCount2 = 13;
@@ -77,7 +77,7 @@ function team02Preload() {
   tmovie = createVideo(["../assets/team02/edt.mp4"]);
   ktmovie = createVideo(["../assets/team02/edkt.mp4"]);
   soundFile = loadSound("../assets/team02/rd.mp3");
-  
+
   kmovie.hide();
   tmovie.hide();
   ktmovie.hide();
@@ -113,10 +113,10 @@ function kumaIn() {
     kumax += s;
   }
 
-  if (kumax == 450) {
+  if (kumax === 450) {
     image(imgkuma1, kumax, kumay);
   } else {
-    if ((kumax / 50) % 2 == 0) {
+    if ((kumax / 50) % 2 === 0) {
       image(imgkuma1, kumax, kumay);
     } else {
       image(imgwk, kumax, kumay);
@@ -130,10 +130,10 @@ function toraIn() {
     torax += s;
   }
 
-  if (torax == 1100) {
+  if (torax === 1100) {
     image(imgtora1, torax, toray);
   } else {
-    if ((torax / 50) % 2 == 0) {
+    if ((torax / 50) % 2 === 0) {
       image(imgtora1, torax, toray);
     } else {
       image(imgwt, torax - 2, toray);
@@ -157,19 +157,19 @@ function toraOut() {
 }
 function team02Dragged() {
   if (
-    mouseX >= garx - 50 &&
-    mouseX <= garx + 70 &&
-    mouseY >= gary - 50 &&
-    mouseY <= gary + 75
+      mouseX >= garx - 50 &&
+      mouseX <= garx + 70 &&
+      mouseY >= gary - 50 &&
+      mouseY <= gary + 75
   ) {
     garx = mouseX;
     gary = mouseY;
   }
   if (
-    mouseX >= ssukx - 50 &&
-    mouseX <= ssukx + 70 &&
-    mouseY >= ssuky - 50 &&
-    mouseY <= ssuky + 75
+      mouseX >= ssukx - 50 &&
+      mouseX <= ssukx + 70 &&
+      mouseY >= ssuky - 50 &&
+      mouseY <= ssuky + 75
   ) {
     ssukx = mouseX;
     ssuky = mouseY;
@@ -180,14 +180,14 @@ function team02Dragged() {
 function team02Released() {
   // ending1 - kuma_to_human
   if (
-    garx >= kumax &&
-    garx <= kumax + 300 &&
-    gary <= kumay + 600 &&
-    gary >= kumay &&
-    ssukx >= kumax &&
-    ssukx <= kumax + 300 &&
-    ssuky <= kumay + 600 &&
-    ssuky >= kumay
+      garx >= kumax &&
+      garx <= kumax + 300 &&
+      gary <= kumay + 600 &&
+      gary >= kumay &&
+      ssukx >= kumax &&
+      ssukx <= kumax + 300 &&
+      ssuky <= kumay + 600 &&
+      ssuky >= kumay
   ) {
     kumaeat = 1;
     ed1 = 1;
@@ -195,14 +195,14 @@ function team02Released() {
 
   // ending2 - tora_to_human
   if (
-    garx >= torax &&
-    garx <= torax + 300 &&
-    gary <= toray + 600 &&
-    gary >= toray &&
-    ssukx >= torax &&
-    ssukx <= torax + 300 &&
-    ssuky <= toray + 600 &&
-    ssuky >= toray
+      garx >= torax &&
+      garx <= torax + 300 &&
+      gary <= toray + 600 &&
+      gary >= toray &&
+      ssukx >= torax &&
+      ssukx <= torax + 300 &&
+      ssuky <= toray + 600 &&
+      ssuky >= toray
   ) {
     toraeat = 1;
     ed2 = 1;
@@ -210,22 +210,22 @@ function team02Released() {
 
   // ending3 - kumna&tora_to_human
   if (
-    (garx >= kumax &&
-      garx <= kumax + 300 &&
-      gary <= kumay + 600 &&
-      gary >= kumay &&
-      ssukx >= torax &&
-      ssukx <= torax + 300 &&
-      ssuky <= toray + 600 &&
-      ssuky >= toray) ||
-    (garx >= torax &&
-      garx <= torax + 300 &&
-      gary <= toray + 600 &&
-      gary >= toray &&
-      ssukx >= kumax &&
-      ssukx <= kumax + 300 &&
-      ssuky <= kumay + 600 &&
-      ssuky >= kumay)
+      (garx >= kumax &&
+          garx <= kumax + 300 &&
+          gary <= kumay + 600 &&
+          gary >= kumay &&
+          ssukx >= torax &&
+          ssukx <= torax + 300 &&
+          ssuky <= toray + 600 &&
+          ssuky >= toray) ||
+      (garx >= torax &&
+          garx <= torax + 300 &&
+          gary <= toray + 600 &&
+          gary >= toray &&
+          ssukx >= kumax &&
+          ssukx <= kumax + 300 &&
+          ssuky <= kumay + 600 &&
+          ssuky >= kumay)
   ) {
     ed3 = 1;
   }
@@ -285,12 +285,12 @@ function initializeVariables() {
 }
 
 function c1() {
-  if (ed1 == 0 && ed2 == 0 && ed3 == 0 && ed4 == 0) {
+  if (ed1 === 0 && ed2 === 0 && ed3 === 0 && ed4 === 0) {
     image(imgtb, 350, 50);
     text(
-      "Who would you give garlic & mugwort to a bear or a tiger?",
-      fontX,
-      fontY
+        "Who would you give garlic & mugwort to a bear or a tiger?",
+        fontX,
+        fontY
     );
   }
 }
@@ -353,21 +353,21 @@ function team02() {
   if (isktmovieVisible) {
     image(ktmovie, 0, 0, width, height);
   }
-  if (gar == true) {
+  if (gar === true) {
     image(imggar, garx, gary);
   }
-  if (ssuk == true) {
+  if (ssuk === true) {
     image(imgssuk, ssukx, ssuky);
   }
-  if (ktext == true) {
+  if (ktext === true) {
     image(imgtb, 350, 50);
     text("The tiger ran away!!", fontX + 300, fontY);
   }
-  if (ttext == true) {
+  if (ttext === true) {
     image(imgtb, 350, 50);
     text("The bear ran away!!", fontX + 300, fontY);
   }
-  if (kumaeat == 1) {
+  if (kumaeat === 1) {
     if (kstart < krepeat) {
       if (millis() - ktime > kinterval) {
         keatmotion = !keatmotion;
@@ -381,7 +381,7 @@ function team02() {
     ssuk = false;
   }
 
-  if (toraeat == 1) {
+  if (toraeat === 1) {
     if (tstart < trepeat) {
       if (millis() - ttime > tinterval) {
         teatmotion = !teatmotion;
@@ -401,19 +401,19 @@ function team02() {
   if (teatmotion) {
     image(imgtora2, torax - 1, toray + 3);
   }
-  if (ed1 == 1) {
+  if (ed1 === 1) {
     toraOut();
-    if (!animate1 && cstop == 0) {
+    if (!animate1 && cstop === 0) {
       animate1 = true;
       displayImage1 = true;
       currentImage1 = 0;
       cstop = cstop + 1;
     }
-    if (torax == 1150) {
+    if (torax === 1150) {
       soundFile.play();
     }
-    if (torax == 1750) {
-      if (!animate2 && cstop == 1) {
+    if (torax === 1750) {
+      if (!animate2 && cstop === 1) {
         animate2 = true;
         displayLastImage2 = false;
         currentImage2 = 6;
@@ -423,7 +423,7 @@ function team02() {
     if (torax < 1920) {
       ktext = true;
     }
-    if (torax == 1920) {
+    if (torax === 1920) {
       ktext = false;
       iskmovieVisible = !iskmovieVisible;
       if (iskmovieVisible) {
@@ -434,44 +434,44 @@ function team02() {
     }
   }
 
-if (ed2 == 1) {
-  kumaOut();
+  if (ed2 === 1) {
+    kumaOut();
 
-  if (!animate1 && cstop == 0) {
-    animate1 = true;
-    displayImage1 = true;
-    currentImage1 = 0;
-    cstop = cstop + 1;
-  }
-  if (kumax == 500) {
-    soundFile.play();
-  }
-  if (kumax == 1200) {
-    soundFile.play();
-  }
-  if (kumax == 1750) {
-    if (!animate2 && cstop == 1) {
-      animate2 = true;
-      displayLastImage2 = false;
-      currentImage2 = 6;
+    if (!animate1 && cstop === 0) {
+      animate1 = true;
+      displayImage1 = true;
+      currentImage1 = 0;
       cstop = cstop + 1;
     }
-  }
-  if (kumax < 1920) {
-    ttext = true;
-  }
-  if (kumax == 1920) {
-    ttext = false;
-    istmovieVisible = !istmovieVisible;
-    if (istmovieVisible) {
-      // 동영상을 재생합니다.
-      tmovie.play();
+    if (kumax === 500) {
+      soundFile.play();
     }
-    setTimeout(ed32, 18000);
+    if (kumax === 1200) {
+      soundFile.play();
+    }
+    if (kumax === 1750) {
+      if (!animate2 && cstop === 1) {
+        animate2 = true;
+        displayLastImage2 = false;
+        currentImage2 = 6;
+        cstop = cstop + 1;
+      }
+    }
+    if (kumax < 1920) {
+      ttext = true;
+    }
+    if (kumax === 1920) {
+      ttext = false;
+      istmovieVisible = !istmovieVisible;
+      if (istmovieVisible) {
+        // 동영상을 재생합니다.
+        tmovie.play();
+      }
+      setTimeout(ed32, 18000);
+    }
   }
-}
 
-  if (ed3 == 1) {
+  if (ed3 === 1) {
     gar = false;
     ssuk = false;
     isktmovieVisible = !isktmovieVisible;
@@ -481,15 +481,15 @@ if (ed2 == 1) {
     ed3 = ed3 + 1;
     setTimeout(ed33, 11000);
   }
-  if (ed4 == 1) {
+  if (ed4 === 1) {
     kumaOut();
     toraOut();
-    if (torax == 1200) {
+    if (torax === 1200) {
       soundFile.play();
     }
     image(imgtb, 350, 50);
     text("Both the bear and the tiger ran away!!", fontX, fontY);
-    if (kumax == 2000) {
+    if (kumax === 2000) {
       background(imged4);
     }
   }
@@ -497,17 +497,17 @@ if (ed2 == 1) {
 
 function ed31() {
   goto(30);
-    currentTeam = TEAM3_1;//정상앤
+  currentTeam = TEAM3_1;//정상앤
 }
 
 function ed32() {
   goto(40);
   // currentScene = 40;
-    currentTeam = TEAM3_2; // 반대
+  currentTeam = TEAM3_2; // 반대
 }
 
 function ed33() {
   goto(50);
   // currentScene = 50;
-    currentTeam = TEAM3_3; //
+  currentTeam = TEAM3_3; //
 }

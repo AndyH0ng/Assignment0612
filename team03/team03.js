@@ -21,9 +21,6 @@ function team03() {
         case 36:
             push(); E1S6(); pop();
             break;
-        case 37:
-            push(); E1S7(); pop();
-            break;
         case 40:
             push(); E2S0(); pop();
             break;

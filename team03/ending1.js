@@ -76,17 +76,6 @@ let peopleAnimating16 = false;
 let happyFrameCounter16 = 0;
 let currentImg16;
 
-// E1S7
-let currentImg17;
-let x17, y17;
-let sizeW17, sizeH17;
-let ySpeed17;
-let switchTime17 = 15;  // 0.5초마다 이미지 변경 (30프레임 기준)
-let frameCounter17 = 0;
-let animating17 = true;  // 애니메이션 상태
-let flagClicked17 = false;  // flagDan이 클릭되었는지 여부
-let peopleAnimating17 = false;
-let happyFrameCounter17 = 0;
 // E1 S0 곰이 동굴에서 나온다 : 3sec
 function E1S0() {
     background(bg[0]);

@@ -18,9 +18,9 @@ const time = [
     [-1],                           // 0 : INTRO
     [],                             // 1 : TEAM1
     [-1],                           // 2 : TEAM2
-    [3, 3, 12, -1, 10, 7, 5],    // 3 : TEAM3 ENDING1
-    [3, -1, -1, -1, -1, -1, -1, -1],        // 4 : TEAM3 ENDING2
-    [5, -1, -1, -1, -1, -1, 10],         // 5 : TEAM3 ENDING3
+    [-1, -1, -1, -1, -1, -1, -1],    // 3 : TEAM3 ENDING1
+    [-1, -1, -1, -1, -1, -1, -1, -1],        // 4 : TEAM3 ENDING2
+    [-1, -1, -1, -1, -1, -1, 10],         // 5 : TEAM3 ENDING3
     [-1]                            // 6 : ENDING CREDIT
 ]
 
@@ -47,6 +47,7 @@ function setup() {
     currentScene = 30; currentTeam = 1; totalTime = 0;
     setupVar();
     team01Init();
+    setupt2();
 }
 
 function draw() {
