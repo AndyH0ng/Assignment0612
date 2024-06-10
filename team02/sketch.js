@@ -507,13 +507,16 @@ if (ed2 == 1) {
 }
 
 function ed31() {
-    currentTeam = TEAM3_1;
+  currentScene = 30;
+    currentTeam = TEAM3_1;//정상앤
 }
 
 function ed32() {
-    currentTeam = TEAM3_2;
+  currentScene = 40;
+    currentTeam = TEAM3_2; // 반대
 }
 
 function ed33() {
-    currentTeam = TEAM3_3;
+  currentScene = 50;
+    currentTeam = TEAM3_3; //
 }
