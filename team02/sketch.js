@@ -288,6 +288,7 @@ function c1() {
   if (ed1 === 0 && ed2 === 0 && ed3 === 0 && ed4 === 0) {
     image(imgtb, 350, 50);
     textAlign(CENTER);
+    textSize(40);
     text(
         "Who would you give garlic & mugwort to a bear or a tiger?",
         width/2,
@@ -362,11 +363,15 @@ function team02() {
   }
   if (ktext === true) {
     image(imgtb, 350, 50);
-    text("The tiger ran away!!", fontX + 300, fontY);
+    textAlign(CENTER);
+    textSize(40);
+    text("The tiger ran away!!", width / 2, fontY);
   }
   if (ttext === true) {
     image(imgtb, 350, 50);
-    text("The bear ran away!!", fontX + 300, fontY);
+    textAlign(CENTER);
+    textSize(40);
+    text("The bear ran away!!", width / 2, fontY);
   }
   if (kumaeat === 1) {
     if (kstart < krepeat) {
@@ -489,7 +494,9 @@ function team02() {
       soundFile.play();
     }
     image(imgtb, 350, 50);
-    text("Both the bear and the tiger ran away!!", fontX, fontY);
+    textAlign(CENTER);
+    textSize(40);
+    text("Both the bear and the tiger ran away!!", width / 2, fontY);
     if (kumax === 2000) {
       background(imged4);
     }
