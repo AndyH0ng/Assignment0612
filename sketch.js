@@ -36,9 +36,9 @@ let audio1 = [], audio2 = [], audio3;
 
 function preload() {
     preloadImage();
-    preloadSound();
     team01Preload();
     team02Preload();
+    team03Preload();
     creditPreload();
 }
 

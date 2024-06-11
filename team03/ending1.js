@@ -1,4 +1,5 @@
 // E1S0
+
 let tgX10 = 1380;
 let tgY10 = 420;
 let tgWidth10;
@@ -79,6 +80,7 @@ let currentImg16;
 // E1 S0 곰이 동굴에서 나온다 : 3sec
 function E1S0() {
     background(bg[0]);
+
     // 현재 시간 가져오기
     let currentTime10 = millis() - totalTime;
 
@@ -114,11 +116,6 @@ function E1S0() {
 // E1 S1 빛을 가져다 대면 곰이 사람으로 변함 : 7sec (drag)
 function E1S1() {
     background(bg[0]);
-    // if (!audio1[0].isPlaying() && played11 === false) {
-    //     played11 = true;
-    //     sound(audio1[1]);
-    // }
-
     // 일정 시간(5초 = 5000 밀리초)이 지나면 happy 이미지로 교체
     if (totalTime - millis() >= 5000) {
         isHappy11 = true;

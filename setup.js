@@ -17,14 +17,6 @@ function setupVar() {
   sizeH16 = 400;
   ySpeed16 = (950 - 678) / (3 * 30.0);  // 3초 동안 950까지 내려가기 위한 속도
 
-  // E1S7
-  currentImg17 = dangun[2];
-  x17 = 1050;
-  y17 = 678;  // 초기 y 위치
-  sizeW17 = 300;
-  sizeH17 = 400;
-  ySpeed17 = (950 - 678) / (3 * 30.0);
-
   // E2S0
   tgWidth40 = tiger_girl[0].width * 0.3;  // 초기 너비 비율
   tgHeight40 = tiger_girl[0].height * 0.3;  // 초기 높이 비율

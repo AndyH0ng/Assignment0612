@@ -13,11 +13,11 @@ function preloadImage() {
         baby[i] = loadImage("assets/baby_" + i + ".png");
     }
 
-    for (let i = 0; i <= 16; i++) {
+    for (let i = 0; i <= 18; i++) {
         bear_girl[i] = loadImage("assets/bear_girl_" + i + ".png");
     }
 
-    for (let i = 0; i <= 9; i++) {
+    for (let i = 0; i <= 11; i++) {
         tiger_girl[i] = loadImage("assets/tiger_girl_" + i + ".png");
     }
 
@@ -85,25 +85,4 @@ function preloadImage() {
     flowers = loadImage("assets/flowers.png");
     sword = loadImage("assets/sword.png");
     flag = loadImage("assets/flag.png");
-}
-
-function preloadSound() {
-    for (let i = 0; i <= 6; i++) {
-        audio1[i] = loadSound("assets/audio/E1S" + i + ".m4a",onSoundLoadSuccess,onSoundLoadError,onSoundLoadProgress);
-    }
-
-    for (let i = 0; i <= 7; i++) {
-        audio2[i] = loadSound("assets/audio/E2S" + i + ".m4a");
-    }
-    audio3 = loadSound("assets/audio/E1S0.m4a");
-}
-
-function onSoundLoadSuccess(e){
-   console.log("load sound success",e);
-}
-function onSoundLoadError(e){
-   console.log("load sound error",e);
-}
-function onSoundLoadProgress(e){
-   console.log("load sound progress",e);
 }

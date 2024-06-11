@@ -134,10 +134,6 @@ let insertImg;
 // ✅✅
 function E3S0() {
     background(bg[0]);
-    // audio1[0].setVolume(0.5);
-    // if (!audio1[0].isPlaying()) {
-    //     audio1[0].play();
-    // }
     let currentTime = millis();
     let elapsedTime = currentTime - totalTime;
 
@@ -149,15 +145,15 @@ function E3S0() {
         tigerX30 = lerp(tigerStartX30, tigerEndX30, progress);
         tigerY30 = lerp(tigerStartY30, tigerEndY30, progress);
 
-        let startbearWidth30 = bear_girl[6].width * 0.3;
-        let startbearHeight30 = bear_girl[6].height * 0.3;
-        let endbearWidth30 = bear_girl[6].width * 0.3 * 2;
-        let endbearHeight30 = bear_girl[6].height * 0.3 * 2;
+        let startbearWidth30 = bear_girl[18].width * 0.3;
+        let startbearHeight30 = bear_girl[18].height * 0.3;
+        let endbearWidth30 = bear_girl[18].width * 0.3 * 2;
+        let endbearHeight30 = bear_girl[18].height * 0.3 * 2;
 
-        let starttigerWidth30 = tiger_girl[1].width * 0.3;
-        let starttigerHeight30 = tiger_girl[1].height * 0.3;
-        let endtigerWidth30 = tiger_girl[1].width * 0.3 * 2;
-        let endtigerHeight30 = tiger_girl[1].height * 0.3 * 2;
+        let starttigerWidth30 = tiger_girl[11].width * 0.3;
+        let starttigerHeight30 = tiger_girl[11].height * 0.3;
+        let endtigerWidth30 = tiger_girl[11].width * 0.3 * 2;
+        let endtigerHeight30 = tiger_girl[11].height * 0.3 * 2;
 
         bearWidth30 = lerp(startbearWidth30, endbearWidth30, progress);
         bearHeight30 = lerp(startbearHeight30, endbearHeight30, progress);
@@ -188,15 +184,15 @@ function E3S0() {
     }
 
     if (showWalkingbear30) {
-        image(bear_girl[6], bearX30, bearY30, bearWidth30, bearHeight30);
+        image(bear_girl[18], bearX30, bearY30, bearWidth30, bearHeight30);
     } else {
-        image(bear_girl[5], bearX30, bearY30, bearWidth30, bearHeight30);
+        image(bear_girl[17], bearX30, bearY30, bearWidth30, bearHeight30);
     }
 
     if (showWalkingtiger30) {
-        image(tiger_girl[1], tigerX30, tigerY30, tigerWidth30, tigerHeight30);
+        image(tiger_girl[11], tigerX30, tigerY30, tigerWidth30, tigerHeight30);
     } else {
-        image(tiger_girl[0], tigerX30, tigerY30, tigerWidth30, tigerHeight30);
+        image(tiger_girl[10], tigerX30, tigerY30, tigerWidth30, tigerHeight30);
     }
 }
 // ✅

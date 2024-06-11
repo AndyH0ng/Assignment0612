@@ -58,6 +58,7 @@ let scaledMouseX24;
 let scaledMouseY24;
 
 // E2S5
+let isStarted25 = false;
 let walkingImageX25 = 2400;
 let walkingImageY25 = 320;
 let walkingImageTime25 = 0;
@@ -68,6 +69,7 @@ let showText3_25 = false;
 let showText4_25 = false;
 let textToggleCount25 = 0;
 let pressedTime45 = 0;
+let startTime25 = 0;
 
 // E2S6
 let currentImageIndex26 = 0;
@@ -374,10 +376,16 @@ function checkCollision4(cloudX, cloudY, image) {
 // ✅✅
 function E2S5() {
     background(bg[10]);
-    // 5초가 지나면 text1을 캔버스 크기에 맞게 삽입
-    if (millis() - totalTime >= 5000 && textToggleCount25 === 0) {
-        showText1_25 = true;
+
+    if (!isStarted25) {
+        startTime25 = millis();
+        isStarted25 = true;
     }
+
+    // 5초가 지나면 text1을 캔버스 크기에 맞게 삽입
+    if (millis() - startTime25 >= 5000 && textToggleCount25 === 0) {
+    showText1_25 = true;
+  }
 
     if (showText1_25) {
         background(bg[13]);
